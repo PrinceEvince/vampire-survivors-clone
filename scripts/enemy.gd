@@ -1,6 +1,6 @@
 extends Node2D  # Or the type of node you're working with
 
-@onready var player = get_node("/root/Game/Player/CharacterBody2D") 
+@onready var player = get_node("/root/Game/Player") 
 var SPEED = 50
 
 func _ready():

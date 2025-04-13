@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bk8dfn8h6gcct" path="res://imgs/enemy.png" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
-size = Vector2(36, 36)
+size = Vector2(25, 31)
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["Enemy"]]
 script = ExtResource("1_md0e3")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Enemy"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 unique_name_in_owner = true
@@ -19,4 +19,5 @@ texture = ExtResource("2_md0e3")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_5uy6h")

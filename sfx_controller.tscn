@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://citd7jx32xp3d"]
+
+[ext_resource type="Script" uid="uid://beh074t6lngot" path="res://sfx_controller.gd" id="1_fjre7"]
+[ext_resource type="AudioStream" uid="uid://1efgll204jks" path="res://audio/bullet_hit.ogg" id="2_ind5n"]
+
+[node name="SFXController" type="Node"]
+script = ExtResource("1_fjre7")
+
+[node name="bullethit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ind5n")
