@@ -1,7 +1,6 @@
 extends Node2D  # Or the type of node you're working with
 
-@export var player_path: String = "/root/Game/Player"
-@onready var player = get_node(player_path)
+@onready var player = get_node("/root/Game/Player/CharacterBody2D")
 var SPEED = 50
 
 func _ready():
@@ -12,6 +11,5 @@ func _ready():
 	
 func _process(delta):
 	var direction = (player.global_position - global_position).normalized() # normalized() removes the distance part and just turns it into directions
-	if global_position == player.global_position:
-		print("bruh")
 	global_position += direction * SPEED * delta
+	
