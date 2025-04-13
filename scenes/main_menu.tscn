@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgmqkdp2hhrbw"]
+[gd_scene load_steps=3 format=3 uid="uid://cgmqkdp2hhrbw"]
 
 [ext_resource type="Script" uid="uid://ddi3t52seqy12" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="AudioStream" uid="uid://c2pbrr1ki8e5l" path="res://audio/music/maintheme.wav" id="2_ekxnf"]
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource("1_l6cm7")
@@ -13,5 +14,9 @@ offset_bottom = 382.0
 focus_mode = 0
 keep_pressed_outside = true
 text = "PLAY GAME"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ekxnf")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

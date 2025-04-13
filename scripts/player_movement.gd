@@ -6,7 +6,6 @@ extends CharacterBody2D
 func _ready():
 	print(parent)
 
-
 func get_input():
 	var input_direction = Input.get_vector("a", "d", "w", "s")
 	velocity = input_direction * speed
