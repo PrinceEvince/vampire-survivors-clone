@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://vl7wnfpa7dsd"]
+[gd_scene load_steps=5 format=3 uid="uid://vl7wnfpa7dsd"]
 
 [ext_resource type="Script" uid="uid://dethko4bvfpjt" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://ch0wt0kflmn6d" path="res://assets/icon.svg" id="3_dqkch"]
-[ext_resource type="Texture2D" uid="uid://bf0s1h2tkn1g8" path="res://imgs/char.png" id="3_qhqgy"]
-[ext_resource type="Script" uid="uid://c4dylsas1fgav" path="res://scenes/visual_bullet_timer.gd" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://dmtnjvf3mtg6r" path="res://scenes/gun.tscn" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://bf0s1h2tkn1g8" path="res://assets/imgs/char.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(34, 36)
@@ -23,24 +22,7 @@ hframes = 3
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="GunTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-autostart = true
-
-[node name="VisualBulletTimer" type="TextureProgressBar" parent="."]
-offset_left = -37.0
-offset_top = 29.0
-offset_right = 91.0
-offset_bottom = 157.0
-scale = Vector2(0.57, 0.075)
-max_value = 180.0
-texture_under = ExtResource("3_dqkch")
-texture_progress = ExtResource("3_dqkch")
-tint_under = Color(1, 0, 0, 1)
-tint_progress = Color(0, 1, 0, 1)
-script = ExtResource("4_dqkch")
-
-[connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]
+[node name="Gun" parent="." instance=ExtResource("3_dqkch")]
