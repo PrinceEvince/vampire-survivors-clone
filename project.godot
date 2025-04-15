@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="shit mobile game"
-run/main_scene="uid://cgmqkdp2hhrbw"
+run/main_scene="uid://c5myhd884y3bq"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://assets/icon.svg"
+
+[autoload]
+
+GlobalData="*res://scripts/GlobalData.gd"
 
 [global_group]
 

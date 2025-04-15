@@ -26,3 +26,5 @@ position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Gun" parent="." instance=ExtResource("3_dqkch")]
+
+[node name="Marker2D" type="Marker2D" parent="."]

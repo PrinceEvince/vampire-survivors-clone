@@ -14,7 +14,7 @@ func get_input():
 	var input_direction = Input.get_vector("a", "d", "w", "s")
 	velocity = input_direction * speed
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	mouse_position = get_global_mouse_position()
