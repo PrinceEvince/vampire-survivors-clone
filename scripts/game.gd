@@ -4,6 +4,9 @@ var spawn_timer = 0
 @export var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var enemies = []
 
+func _ready():
+	GlobalData.game = self
+
 func _process(delta):
 	spawn_timer += delta
 	if spawn_timer >= enemy_spawn_frequency:

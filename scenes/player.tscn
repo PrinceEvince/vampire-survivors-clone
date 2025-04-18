@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(34, 36)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -25,6 +25,6 @@ vframes = 2
 position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="Gun" parent="." instance=ExtResource("3_dqkch")]
-
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("3_dqkch")]
