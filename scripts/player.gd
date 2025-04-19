@@ -17,8 +17,8 @@ func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	mouse_position = get_global_mouse_position()
-	direction = (mouse_position - global_position).normalized()
-	$Sprite2D.rotation = direction.angle()
+	#direction = (mouse_position - global_position).normalized()
+	#$Sprite2D.rotation = direction.angle()
 
 func get_closest_enemy():
 	if len(get_tree().get_nodes_in_group("enemies")) == 0:
