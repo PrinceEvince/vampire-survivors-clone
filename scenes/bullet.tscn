@@ -1,23 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://daimmfbkt6x87"]
+[gd_scene load_steps=7 format=3 uid="uid://daimmfbkt6x87"]
 
 [ext_resource type="Script" uid="uid://jwp5kpmxfwwh" path="res://scripts/bullet.gd" id="1_l5glv"]
-[ext_resource type="Texture2D" uid="uid://damfjf88i70kh" path="res://assets/imgs/bulletRedSilver.png" id="1_v7oki"]
+[ext_resource type="Texture2D" uid="uid://bpn0rukoq47l2" path="res://assets/imgs/knife.png" id="2_l5glv"]
 [ext_resource type="AudioStream" uid="uid://1efgll204jks" path="res://audio/bullet_hit.ogg" id="3_t4vbm"]
+
+[sub_resource type="Curve" id="Curve_l5glv"]
+_data = [Vector2(0.0852273, 1), 0.0, 0.0, 0, 0, Vector2(0.176136, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_l5glv"]
+offsets = PackedFloat32Array(0, 0.173333)
+colors = PackedColorArray(1, 0, 0.00784314, 1, 0, 0, 0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5glv"]
 radius = 6.0
-height = 28.0
+height = 62.0
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_l5glv")
 
+[node name="BulletSprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(2.45533, 2.45533)
+texture = ExtResource("2_l5glv")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BulletSprite"]
+z_index = -1
+amount = 500
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_l5glv")
+color_ramp = SubResource("Gradient_l5glv")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_l5glv")
-
-[node name="BulletSprite" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("1_v7oki")
 
 [node name="pow" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

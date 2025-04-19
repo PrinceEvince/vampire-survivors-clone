@@ -22,6 +22,7 @@ func _physics_process(_delta):
 	#direction = (mouse_position - global_position).normalized()
 	#$Sprite2D.rotation = direction.angle()
 	
+	#this animation controller is shit and needs to be changed at some point lol
 	if Input.is_action_pressed("w"):
 		ani_player.play("walk_up")
 		

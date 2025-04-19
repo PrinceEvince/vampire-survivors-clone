@@ -20,6 +20,7 @@ func _physics_process(delta):
 		
 	else:
 		global_position += (direction * speed) * delta
+		$BulletSprite.visible = true
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):

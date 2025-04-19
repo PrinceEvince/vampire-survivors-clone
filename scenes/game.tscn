@@ -9,6 +9,7 @@
 script = ExtResource("1_yqjtg")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+unique_name_in_owner = true
 position = Vector2(594, 322)
 
 [node name="SFXController" parent="Player" instance=ExtResource("3_lbhrr")]
