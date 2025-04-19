@@ -14,7 +14,7 @@ collision_mask = 4
 script = ExtResource("1_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.405, 1.405)
+zoom = Vector2(1.91, 1.91)
 position_smoothing_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

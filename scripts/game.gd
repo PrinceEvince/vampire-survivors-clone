@@ -1,7 +1,7 @@
 extends Node2D
 var enemy_spawn_frequency = 0.01 # in seconds
 var spawn_timer = 0
-@export var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
+var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var max_enemies = 1200
 
 func _ready():
