@@ -4,8 +4,8 @@ const BULLET = preload("res://scenes/bullet.tscn")
 
 const SFX_CONTROLLER = preload("res://scenes/sfx_controller.tscn")
 var firerate = 0.5
-var pierce = 7
-var damage = 30
+var pierce = 700
+var damage = 10
 var cooldown_timer = 0
 var bullet_direction = Vector2.ZERO
 

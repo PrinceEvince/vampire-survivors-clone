@@ -10,13 +10,15 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_l5glv"]
 offsets = PackedFloat32Array(0, 0.173333)
-colors = PackedColorArray(1, 0, 0.00784314, 1, 0, 0, 0, 1)
+colors = PackedColorArray(0.881797, 0.313633, 0.311456, 1, 0, 0, 0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5glv"]
 radius = 6.0
 height = 62.0
 
 [node name="Bullet" type="Area2D"]
+collision_layer = 255
+collision_mask = 255
 script = ExtResource("1_l5glv")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
@@ -29,9 +31,11 @@ texture = ExtResource("2_l5glv")
 z_index = -1
 amount = 500
 scale_amount_min = 5.0
-scale_amount_max = 10.0
+scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_l5glv")
 color_ramp = SubResource("Gradient_l5glv")
+anim_speed_min = 5.17
+anim_speed_max = 5.17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
