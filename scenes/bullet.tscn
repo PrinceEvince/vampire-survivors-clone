@@ -4,16 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://damfjf88i70kh" path="res://assets/imgs/bulletRedSilver.png" id="1_v7oki"]
 [ext_resource type="AudioStream" uid="uid://1efgll204jks" path="res://audio/bullet_hit.ogg" id="3_t4vbm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5glv"]
-size = Vector2(28, 14)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5glv"]
+radius = 6.0
+height = 28.0
 
-[node name="Bullet" type="Node2D"]
+[node name="Bullet" type="Area2D"]
 script = ExtResource("1_l5glv")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_l5glv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_l5glv")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -23,3 +23,5 @@ texture = ExtResource("1_v7oki")
 unique_name_in_owner = true
 stream = ExtResource("3_t4vbm")
 volume_db = -0.937
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

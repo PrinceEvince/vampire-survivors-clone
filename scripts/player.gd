@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 200
 @onready var camera = $Camera2D  # Assuming the Camera2D node is a child of the player
 var previous_global_position = global_position
 var mouse_position
