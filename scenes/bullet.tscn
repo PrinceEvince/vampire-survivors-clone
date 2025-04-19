@@ -25,6 +25,7 @@ scale = Vector2(2.45533, 2.45533)
 texture = ExtResource("2_l5glv")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="BulletSprite"]
+visible = false
 z_index = -1
 amount = 500
 scale_amount_min = 5.0
