@@ -5,6 +5,8 @@ extends CharacterBody2D
 var previous_global_position = global_position
 var mouse_position
 var direction
+@onready var ani_player = %AnimationPlayer
+@onready var sprite = %Sprite2D
 
 func _ready():
 	GlobalData.player = self
@@ -19,6 +21,20 @@ func _physics_process(_delta):
 	mouse_position = get_global_mouse_position()
 	#direction = (mouse_position - global_position).normalized()
 	#$Sprite2D.rotation = direction.angle()
+	
+	if Input.is_action_pressed("w"):
+		ani_player.play("walk_up")
+		
+	if Input.is_action_pressed("d"):
+		ani_player.play("walk_right")
+		
+	if Input.is_action_pressed("s"):
+		ani_player.play("walk_down")
+		
+	if Input.is_action_pressed("a"):
+		ani_player.play("walk_left")
+	
+		
 
 func get_closest_enemy():
 	if len(get_tree().get_nodes_in_group("enemies")) == 0:
