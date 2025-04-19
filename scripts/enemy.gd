@@ -9,7 +9,6 @@ func _ready():
 		randf_range(0, 1200),  # change later to only spawn offscreen
 		randf_range(0, 700)
 	)
-
 	%Sprite2D.frame = randi_range(1,4)
 
 func _physics_process(delta):

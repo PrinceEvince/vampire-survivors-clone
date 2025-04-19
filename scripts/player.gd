@@ -21,11 +21,14 @@ func _physics_process(_delta):
 	$Sprite2D.rotation = direction.angle()
 
 func get_closest_enemy():
-	var closest_enemy_distance = INF
-	var closest_enemy_reference = Node2D
-	for enemy in GlobalData.enemies:
-		var distance = global_position.distance_to(enemy.global_position)
-		if distance < closest_enemy_distance:
-			closest_enemy_distance = distance
-			closest_enemy_reference = enemy
-	return closest_enemy_reference
+	if len(get_tree().get_nodes_in_group("enemies")) == 0:
+		return null
+	else:
+		var closest_enemy_distance = INF
+		var closest_enemy_reference = Node2D
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			var distance = global_position.distance_to(enemy.global_position)
+			if distance < closest_enemy_distance:
+				closest_enemy_distance = distance
+				closest_enemy_reference = enemy
+		return closest_enemy_reference

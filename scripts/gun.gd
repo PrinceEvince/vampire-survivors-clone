@@ -3,11 +3,11 @@ extends Node2D
 const BULLET = preload("res://scenes/bullet.tscn")
 
 const SFX_CONTROLLER = preload("res://scenes/sfx_controller.tscn")
-var firerate = 0.3
-var pierce = 1
-var damage = 5
+var firerate = 0.1
+var pierce = 100
+var damage = 30
 var cooldown_timer = 0
-var bullet_direction = Vector2(1,0)
+var bullet_direction = Vector2.ZERO
 
 func _process(delta):
 	cooldown_timer += delta
@@ -17,7 +17,7 @@ func _process(delta):
 
 func shoot():
 	print("BOOM!")
-	var closest_enemy = get_closest_enemy()
+	var closest_enemy = GlobalData.player.get_closest_enemy()
 	if closest_enemy == null:
 		pass
 	else:
@@ -32,15 +32,3 @@ func shoot():
 										   # because when the player moves the bullets would move
 										   # which would be bad! you silly goose, you!!!!!!!!!!
 									
-func get_closest_enemy():
-	if len(get_tree().get_nodes_in_group("enemies")) == 0:
-		return null
-	else:
-		var closest_enemy_distance = INF
-		var closest_enemy_reference = Node2D
-		for enemy in get_tree().get_nodes_in_group("enemies"):
-			var distance = global_position.distance_to(enemy.global_position)
-			if distance < closest_enemy_distance:
-				closest_enemy_distance = distance
-				closest_enemy_reference = enemy
-		return closest_enemy_reference
