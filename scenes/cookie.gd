@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
-var SPEED = 20
-var HEALTH = 40
+var SPEED = 300
+var HEALTH = 10
 
 func _ready():
-	%AnimationPlayer.play("nom")
 	add_to_group("enemies")
 	global_position = Vector2( # randomize where the enemy spawns
 		randf_range(0, 1200),  # change later to only spawn offscreen

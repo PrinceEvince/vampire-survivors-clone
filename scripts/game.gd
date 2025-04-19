@@ -1,7 +1,15 @@
 extends Node2D
 var enemy_spawn_frequency = 0.01 # in seconds
 var spawn_timer = 0
-var enemy_scenes: Array = [preload("res://scenes/enemy.tscn"), preload("res://scenes/tomater.tscn")]
+
+var enemy_scenes: Dictionary = {
+	
+preload("res://scenes/enemy.tscn") : 15,
+preload("res://scenes/tomater.tscn") : 4, 
+preload("res://scenes/cookie.tscn") : 1
+
+}
+
 var max_enemies = 500
 
 func _ready():
@@ -15,7 +23,8 @@ func spawn_enemy(delta):
 	spawn_timer += delta
 	if spawn_timer >= enemy_spawn_frequency and len(get_tree().get_nodes_in_group("enemies")) < max_enemies:
 		spawn_timer = 0
-		var rand_enemy = enemy_scenes.pick_random()
+		var rand_enemy_array: Array
+		var rand_enemy = pick_weighted_enemy()
 		var enemy = rand_enemy.instantiate()
 		add_child(enemy)
 		var camera = GlobalData.player.get_node("Camera2D")
@@ -50,3 +59,11 @@ func spawn_enemy(delta):
 				)
 
 		enemy.global_position = spawn_position
+		
+
+func pick_weighted_enemy():
+	var rng = RandomNumberGenerator.new()
+	var enemies = enemy_scenes.keys() as Array
+	var weights = enemy_scenes.values() as Array
+	var enemy_weights = PackedFloat32Array(weights)
+	return enemies[rng.rand_weighted(enemy_weights)]
