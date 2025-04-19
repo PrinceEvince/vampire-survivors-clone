@@ -4,6 +4,8 @@ var spawn_timer = 0
 
 var enemy_scenes: Dictionary = {
 	
+	
+#put the preload(scene) first, and then after put the odds at which they spawn
 preload("res://scenes/enemy.tscn") : 15,
 preload("res://scenes/tomater.tscn") : 4, 
 preload("res://scenes/cookie.tscn") : 1
