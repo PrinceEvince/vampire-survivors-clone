@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cidrqojmaxpp4"]
+[gd_scene load_steps=5 format=3 uid="uid://cidrqojmaxpp4"]
 
 [ext_resource type="Script" uid="uid://bgiwwtxm18lek" path="res://scripts/xp.gd" id="1_8cwu2"]
 [ext_resource type="Texture2D" uid="uid://13541gqaf60d" path="res://assets/imgs/xp_orb.png" id="2_qp56h"]
+[ext_resource type="AudioStream" uid="uid://cqojtcpu5i87q" path="res://audio/xp_pickup.mp3" id="3_qp56h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fycud"]
 radius = 7.07107
@@ -17,8 +18,11 @@ texture = ExtResource("2_qp56h")
 shape = SubResource("CircleShape2D_fycud")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 25.0
-autostart = true
+wait_time = 0.356
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qp56h")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,7 +7,8 @@ extends Area2D
 @export var xp = 0
 
 func _on_body_entered(body):
-	die()
+	if body == GlobalData.player:
+		pickup()
 
 func _physics_process(delta: float) -> void:
 	var player_pos = GlobalData.player.global_position
@@ -18,8 +19,10 @@ func _physics_process(delta: float) -> void:
 		var direction = (player_pos - global_position).normalized()
 		global_position += direction * current_speed * delta
 
-func die():
-	queue_free()
+func pickup():
+	$AudioStreamPlayer2D.play()
+	$Sprite2D.hide()
+	$Timer.start()
 
 func _on_timer_timeout() -> void:
-	die()
+	queue_free()
