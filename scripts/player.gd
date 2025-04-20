@@ -7,6 +7,7 @@ var mouse_position
 var direction = Vector2.ZERO
 @onready var ani_player = %AnimationPlayer
 @onready var sprite = %Sprite2D
+var xp = 0
 
 func _ready():
 	GlobalData.player = self

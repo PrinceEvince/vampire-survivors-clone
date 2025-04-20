@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://c804m0o62hpqk"]
+[gd_scene load_steps=4 format=3 uid="uid://c804m0o62hpqk"]
 
 [ext_resource type="Script" uid="uid://cqlff5cevu5xv" path="res://scripts/spatula.gd" id="1_d8owb"]
+[ext_resource type="Texture2D" uid="uid://dxrdmwf0bnnmy" path="res://assets/imgs/spatula.png" id="2_ybuw3"]
 
-[node name="Spatula" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8owb"]
+size = Vector2(25, 16)
+
+[node name="Spatula" type="Area2D"]
+collision_layer = 255
+collision_mask = 255
 script = ExtResource("1_d8owb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(109.5, 0.5)
+texture = ExtResource("2_ybuw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(130, 0.5)
+shape = SubResource("RectangleShape2D_d8owb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

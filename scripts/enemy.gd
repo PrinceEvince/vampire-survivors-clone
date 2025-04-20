@@ -1,6 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
+const XP = preload("res://scenes/xp.tscn")
 @export var SPEED = 50
 @export var HEALTH = 15
 @onready var sprite: Sprite2D = $Sprite2D
@@ -57,4 +58,7 @@ func take_damage(amt):
 
 
 func die():
+	var xp = XP.instantiate()
+	xp.global_position = global_position
+	GlobalData.game.add_child(xp)
 	queue_free() # Remove the enemy node from the scene
