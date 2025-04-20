@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddfj56h3ixagm"]
+
+[ext_resource type="Script" uid="uid://bkrndwpfimsd5" path="res://scripts/enemy.gd" id="1_sfhus"]
+[ext_resource type="Texture2D" uid="uid://dsal8alm5qrht" path="res://assets/imgs/itlainasausage.png" id="2_5owrn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sfhus"]
+radius = 11.6434
+
+[node name="Meatball" type="CharacterBody2D"]
+script = ExtResource("1_sfhus")
+metadata/_custom_type_script = "uid://bkrndwpfimsd5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1.13687e-13, 0)
+scale = Vector2(0.0878781, 0.0800667)
+texture = ExtResource("2_5owrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+rotation = 1.55509
+scale = Vector2(1.395, 1.395)
+shape = SubResource("CircleShape2D_sfhus")

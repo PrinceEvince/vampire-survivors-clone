@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmtnjvf3mtg6r"]
+
+[ext_resource type="Script" uid="uid://dluxqm2c1q2ta" path="res://scripts/knife weapon.gd" id="1_era51"]
+
+[node name="Knife Weapon" type="Node2D"]
+script = ExtResource("1_era51")

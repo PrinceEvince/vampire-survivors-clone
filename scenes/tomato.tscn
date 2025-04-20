@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cexdkwdlbnn5k"]
+[gd_scene load_steps=8 format=3 uid="uid://codsxpulpy7rr"]
 
-[ext_resource type="Script" uid="uid://da7s4jlyu06po" path="res://scripts/tomato.gd" id="1_6s8b5"]
-[ext_resource type="Texture2D" uid="uid://cujyxe4f8xpq1" path="res://assets/imgs/spritesheet (1).png" id="2_qd632"]
+[ext_resource type="Script" uid="uid://bkrndwpfimsd5" path="res://scripts/enemy.gd" id="1_tsxsy"]
+[ext_resource type="Texture2D" uid="uid://cujyxe4f8xpq1" path="res://assets/imgs/spritesheet (1).png" id="2_pjj58"]
+[ext_resource type="Script" uid="uid://m72pssofj76j" path="res://scripts/tomato_animation.gd" id="3_1ldso"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xriqq"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5p4s"]
 radius = 28.0
 
 [sub_resource type="Animation" id="Animation_fj163"]
@@ -45,21 +46,23 @@ _data = {
 &"nom": SubResource("Animation_qi242")
 }
 
-[node name="Tomater" type="CharacterBody2D"]
-script = ExtResource("1_6s8b5")
+[node name="Tomato" type="CharacterBody2D"]
+script = ExtResource("1_tsxsy")
+metadata/_custom_type_script = "uid://bkrndwpfimsd5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4, -10)
 scale = Vector2(0.433, 0.433)
-texture = ExtResource("2_qd632")
+texture = ExtResource("2_pjj58")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
-shape = SubResource("CircleShape2D_xriqq")
+shape = SubResource("CircleShape2D_m5p4s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_frv6k")
 }
+script = ExtResource("3_1ldso")

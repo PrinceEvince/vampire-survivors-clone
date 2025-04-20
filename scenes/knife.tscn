@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://daimmfbkt6x87"]
 
-[ext_resource type="Script" uid="uid://jwp5kpmxfwwh" path="res://scripts/bullet.gd" id="1_l5glv"]
+[ext_resource type="Script" uid="uid://jwp5kpmxfwwh" path="res://scripts/knife.gd" id="1_l5glv"]
 [ext_resource type="Texture2D" uid="uid://bpn0rukoq47l2" path="res://assets/imgs/knife.png" id="2_l5glv"]
 [ext_resource type="AudioStream" uid="uid://1efgll204jks" path="res://audio/bullet_hit.ogg" id="3_t4vbm"]
 
@@ -16,18 +16,18 @@ colors = PackedColorArray(0.881797, 0.313633, 0.311456, 1, 0, 0, 0, 1)
 radius = 6.0
 height = 62.0
 
-[node name="Bullet" type="Area2D"]
+[node name="Knife" type="Area2D"]
 collision_layer = 255
 collision_mask = 255
 script = ExtResource("1_l5glv")
 
-[node name="BulletSprite" type="Sprite2D" parent="."]
+[node name="KnifeSprite" type="Sprite2D" parent="."]
 visible = false
 rotation = 1.5708
 scale = Vector2(2.45533, 2.45533)
 texture = ExtResource("2_l5glv")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="BulletSprite"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="KnifeSprite"]
 z_index = -1
 amount = 500
 scale_amount_min = 5.0

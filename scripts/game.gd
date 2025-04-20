@@ -1,13 +1,13 @@
 extends Node2D
-var enemy_spawn_frequency = 0.01 # in seconds
+var enemy_spawn_frequency = 0.5 # in seconds
 var spawn_timer = 0
 
 var enemy_scenes: Dictionary = {
 	
 	
 #put the preload(scene) first, and then after put the odds at which they spawn
-preload("res://scenes/enemy.tscn") : 15,
-preload("res://scenes/tomater.tscn") : 4, 
+preload("res://scenes/meatball.tscn") : 15,
+preload("res://scenes/tomato.tscn") : 4, 
 preload("res://scenes/cookie.tscn") : 1
 
 }
