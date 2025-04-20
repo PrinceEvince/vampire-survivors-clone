@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://13541gqaf60d" path="res://assets/imgs/xp_orb.png" id="2_qp56h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fycud"]
-radius = 7.0
+radius = 7.07107
 
 [node name="Xp" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_8cwu2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

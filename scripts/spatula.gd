@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var swing_time = 1
+@export var swing_time = 0.3
 var damage = 5
 
 func _ready(): # this runs when the scene is instantiated

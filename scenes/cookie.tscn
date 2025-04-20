@@ -9,13 +9,16 @@ _data = [Vector2(0.136364, 1), 0.0, 0.0, 0, 0, Vector2(0.517045, 0), 0.0, 0.0, 0
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nc27e"]
-radius = 21.1896
+radius = 23.0
 
 [node name="Cookie" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_2rrt0")
-SPEED = 250
+SPEED = 225
+min_xp_dropped = 1
+max_xp_dropped = 1
+hurt_color = Color(0.863436, 5.31845e-06, 7.70092e-07, 1)
 metadata/_custom_type_script = "uid://bkrndwpfimsd5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

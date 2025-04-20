@@ -5,8 +5,8 @@ const XP = preload("res://scenes/xp.tscn")
 @export var SPEED = 50
 @export var HEALTH = 15
 @onready var sprite: Sprite2D = $Sprite2D
-# aaaa
-
+@export var min_xp_dropped = 0
+@export var max_xp_dropped = 0
 # --- Color and Tween Params ---
 # Use float values (0.0 to 1.0) for colors
 @export var hurt_color = Color(1.0, 0.5, 0.5)  # Reddish tint for hurt effect
@@ -58,7 +58,10 @@ func take_damage(amt):
 
 
 func die():
-	var xp = XP.instantiate()
-	xp.global_position = global_position
-	GlobalData.game.add_child(xp)
+	randomize()
+	for num in randf_range(min_xp_dropped, ((randi() % (max_xp_dropped+1))+min_xp_dropped)):
+		var xp = XP.instantiate()
+		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
+		xp.global_position = global_position + random_offset
+		GlobalData.game.add_child(xp)
 	queue_free() # Remove the enemy node from the scene

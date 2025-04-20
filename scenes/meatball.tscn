@@ -8,6 +8,8 @@ radius = 11.6434
 
 [node name="Meatball" type="CharacterBody2D"]
 script = ExtResource("1_sfhus")
+max_xp_dropped = 1
+hurt_color = Color(0.798823, 0.169654, 0.175924, 1)
 metadata/_custom_type_script = "uid://bkrndwpfimsd5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

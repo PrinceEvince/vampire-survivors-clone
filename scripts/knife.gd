@@ -18,7 +18,6 @@ func _physics_process(delta):
 	lifespan_timer += delta
 	if lifespan_timer >= lifespan:
 		die()
-		
 	else:
 		global_position += (direction * speed) * delta
 		$KnifeSprite.visible = true
