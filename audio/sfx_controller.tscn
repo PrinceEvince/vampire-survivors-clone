@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://citd7jx32xp3d"]
+
+[ext_resource type="Script" uid="uid://beh074t6lngot" path="res://scripts/sfx_controller.gd" id="1_ui8vo"]
+[ext_resource type="AudioStream" uid="uid://1efgll204jks" path="res://audio/bullet_hit.ogg" id="2_mfkj3"]
+[ext_resource type="AudioStream" uid="uid://cv64uatxu4fst" path="res://audio/steveoof.mp3" id="3_0rn6h"]
+
+[node name="SFXController" type="Node"]
+script = ExtResource("1_ui8vo")
+
+[node name="bullethit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mfkj3")
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0rn6h")

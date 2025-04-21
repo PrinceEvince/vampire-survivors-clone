@@ -5,6 +5,11 @@ extends Area2D
 @export var max_speed: float = 500.0        # Speed when player is very close
 @export var detection_range: float = 140.0  # How far the player needs to be to start attracting XP
 @export var xp = 0
+@onready var xp_pickup_sfx = $AudioStreamPlayer2D
+
+func _ready():
+	add_to_group("xp")
+
 
 func _on_body_entered(body):
 	if body == GlobalData.player:
@@ -21,11 +26,22 @@ func _physics_process(delta: float) -> void:
 		global_position += direction * current_speed * delta
 
 func pickup():
+	shutup()
+	
 	GlobalData.player.xp += 1
 	print(GlobalData.player.xp)
-	$AudioStreamPlayer2D.play()
+	
+	
+	xp_pickup_sfx.pitch_scale = randi_range(0.1,4)
+	xp_pickup_sfx.play()
+	
+
 	$Sprite2D.hide()
 	$Timer.start()
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+func shutup():
+	for node in get_tree().get_nodes_in_group("xp"):
+		node.xp_pickup_sfx.stop()

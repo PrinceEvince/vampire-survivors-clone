@@ -1,7 +1,7 @@
 extends Node2D
 
 const KNIFE = preload("res://scenes/Knife.tscn")
-const SFX_CONTROLLER = preload("res://scenes/sfx_controller.tscn")
+const SFX_CONTROLLER = preload("uid://citd7jx32xp3d")
 
 @export var speed = 800 # the speed at which knives travel
 @export var lifespan = 2 # how many seconds the knives last before despawning

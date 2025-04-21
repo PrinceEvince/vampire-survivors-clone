@@ -16,6 +16,7 @@ const XP = preload("res://scenes/xp.tscn")
 @export var hurt_effect_duration = 0.15 # Total time for the flash (flash on + flash off)
 # Variable to store the active hurt tween
 var active_hurt_tween: Tween
+var newaudioplayer
 
 func _ready():
 	add_to_group("enemies")
@@ -23,6 +24,10 @@ func _ready():
 		randf_range(0, 1200),
 		randf_range(0, 700)
 	)
+	
+	newaudioplayer = AudioStreamPlayer2D.new()
+	add_child(newaudioplayer)
+	
 func _physics_process(_delta):
 	if GlobalData.player:
 		var direction = (GlobalData.player.global_position - global_position).normalized()
@@ -42,10 +47,22 @@ func _physics_process(_delta):
 func take_damage(amt):
 	HEALTH -= amt
 
+
+
+
 	# --- Check for Death ---
 	if HEALTH <= 0:
 		die()
-
+	
+	var hurt_sfx: Array[AudioStream] = [
+	preload("res://audio/hit1.ogg"),
+	preload("res://audio/hit2.ogg"),
+	preload("res://audio/hit3.ogg"),
+	preload("res://audio/hit4.ogg")
+]
+	newaudioplayer.stream = hurt_sfx.pick_random()
+	newaudioplayer.play()
+	
 	# add on-hit particles
 	var explosion_particles = EXPLOSION_PARTICLES.instantiate()
 	explosion_particles.global_position = global_position
@@ -62,10 +79,14 @@ func take_damage(amt):
 
 	active_hurt_tween = create_tween()
 	active_hurt_tween.tween_property(sprite, "modulate", hurt_color, hurt_effect_duration / 2.0)
+	active_hurt_tween.tween_property(sprite, "rotation_degrees", 50, 0.06)
+	active_hurt_tween.tween_property(sprite, "rotation_degrees", 0, 0.06)
 	active_hurt_tween.tween_property(sprite, "modulate", normal_color, hurt_effect_duration / 2.0)
 
 
+
 func die():
+	
 	randomize()
 	for num in randf_range(min_xp_dropped, ((randi() % (max_xp_dropped+1))+min_xp_dropped)):
 		var xp = XP.instantiate()

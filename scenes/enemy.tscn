@@ -4,3 +4,5 @@
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_md0e3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

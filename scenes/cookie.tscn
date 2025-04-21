@@ -17,7 +17,7 @@ collision_mask = 8
 script = ExtResource("1_2rrt0")
 SPEED = 225
 min_xp_dropped = 1
-max_xp_dropped = 1
+max_xp_dropped = 3
 hurt_color = Color(0.863436, 5.31845e-06, 7.70092e-07, 1)
 metadata/_custom_type_script = "uid://bkrndwpfimsd5"
 

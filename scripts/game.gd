@@ -54,7 +54,7 @@ func spawn_enemy(delta):
 					camera_pos.x - screen_size.x / 2 - spawn_margin,
 					randf_range(camera_pos.y - screen_size.y / 2, camera_pos.y + screen_size.y / 2)
 				)
-			3:  # Right
+			3:  # Rightwww
 				spawn_position = Vector2(
 					camera_pos.x + screen_size.x / 2 + spawn_margin,
 					randf_range(camera_pos.y - screen_size.y / 2, camera_pos.y + screen_size.y / 2)
