@@ -28,18 +28,12 @@ func _physics_process(delta: float) -> void:
 
 func pickup():
 	shutup()
-	
 	GlobalData.player.xp += 1
-	print(GlobalData.player.xp)
-	
-	
 	xp_pickup_sfx.pitch_scale = randi_range(0.1,4)
 	xp_pickup_sfx.play()
-	
-
 	$Sprite2D.hide()
 	$Timer.start()
-
+	
 func _on_timer_timeout() -> void:
 	queue_free()
 

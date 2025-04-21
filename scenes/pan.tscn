@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpw0xxgkk1wra" path="res://assets/imgs/pan.png" id="2_yxv2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg2j3"]
-size = Vector2(32.2866, 70.9411)
+size = Vector2(32.2866, 48.5889)
 
 [node name="Node2D" type="Area2D"]
 collision_layer = 255
@@ -17,8 +17,9 @@ rotation = -1.0472
 texture = ExtResource("2_yxv2b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(21.8987, -21.7084)
+position = Vector2(26.8596, -31.7231)
 rotation = 0.459931
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bg2j3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

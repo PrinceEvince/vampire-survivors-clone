@@ -106,6 +106,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 collision_mask = 4
 script = ExtResource("1_g2els")
 
@@ -143,6 +144,8 @@ position = Vector2(-10, -1)
 [node name="Pan" parent="." instance=ExtResource("5_qlg0r")]
 z_index = -1
 position = Vector2(-1, 2)
+collision_layer = 1
+collision_mask = 1
 
 [node name="xp_bar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true

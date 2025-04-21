@@ -8,6 +8,7 @@ const XP = preload("res://scenes/xp.tscn")
 @onready var sprite: Sprite2D = $Sprite2D
 @export var min_xp_dropped = 0
 @export var max_xp_dropped = 0
+@export var particle_texture: Texture2D
 # --- Color and Tween Params ---
 # Use float values (0.0 to 1.0) for colors
 @export var hurt_color = Color(1.0, 0.5, 0.5)  # Reddish tint for hurt effect
@@ -19,6 +20,7 @@ var active_hurt_tween: Tween
 var newaudioplayer
 
 func _ready():
+	
 	add_to_group("enemies")
 	global_position = Vector2(
 		randf_range(0, 1200),
@@ -45,14 +47,11 @@ func _physics_process(_delta):
 
 
 func take_damage(amt):
-	HEALTH -= amt
-
-
-
-
 	# --- Check for Death ---
 	if HEALTH <= 0:
 		die()
+	
+	HEALTH -= amt
 	
 	var hurt_sfx: Array[AudioStream] = [
 	preload("res://audio/hit1.ogg"),
@@ -65,8 +64,9 @@ func take_damage(amt):
 	
 	# add on-hit particles
 	var explosion_particles = EXPLOSION_PARTICLES.instantiate()
+	explosion_particles.texture = particle_texture
 	explosion_particles.global_position = global_position
-	explosion_particles.amount = 10
+	explosion_particles.amount = 6
 	explosion_particles.emitting = true
 	GlobalData.game.add_child(explosion_particles)
 
@@ -86,7 +86,7 @@ func take_damage(amt):
 
 
 func die():
-	
+	set_physics_process(false)
 	randomize()
 	for num in randf_range(min_xp_dropped, ((randi() % (max_xp_dropped+1))+min_xp_dropped)):
 		var xp = XP.instantiate()
@@ -96,8 +96,10 @@ func die():
 	
 	# add death particles
 	var explosion_particles = EXPLOSION_PARTICLES.instantiate()
+	if particle_texture:
+		explosion_particles.texture = particle_texture
 	explosion_particles.global_position = global_position
-	explosion_particles.amount = 60
+	explosion_particles.amount = 30
 	explosion_particles.emitting = true
 	GlobalData.game.add_child(explosion_particles)
 	

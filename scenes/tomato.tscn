@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://codsxpulpy7rr"]
+[gd_scene load_steps=9 format=3 uid="uid://codsxpulpy7rr"]
 
 [ext_resource type="Script" uid="uid://bkrndwpfimsd5" path="res://scripts/enemy.gd" id="1_tsxsy"]
+[ext_resource type="Texture2D" uid="uid://r4n0rh5appf8" path="res://assets/imgs/tomato particles.png" id="2_m5p4s"]
 [ext_resource type="Texture2D" uid="uid://cujyxe4f8xpq1" path="res://assets/imgs/spritesheet (1).png" id="2_pjj58"]
 [ext_resource type="Script" uid="uid://m72pssofj76j" path="res://scripts/tomato_animation.gd" id="3_1ldso"]
 
@@ -51,6 +52,7 @@ script = ExtResource("1_tsxsy")
 HEALTH = 35
 min_xp_dropped = 3
 max_xp_dropped = 4
+particle_texture = ExtResource("2_m5p4s")
 hurt_color = Color(0.700247, 0, 0.155524, 1)
 metadata/_custom_type_script = "uid://bkrndwpfimsd5"
 

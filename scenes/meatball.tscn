@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddfj56h3ixagm"]
+[gd_scene load_steps=6 format=3 uid="uid://ddfj56h3ixagm"]
 
 [ext_resource type="Script" uid="uid://bkrndwpfimsd5" path="res://scripts/enemy.gd" id="1_sfhus"]
+[ext_resource type="Texture2D" uid="uid://dfbbkgqe3rqa6" path="res://assets/imgs/meatball particles.png" id="2_5owrn"]
 [ext_resource type="Texture2D" uid="uid://umsnmnm4ytfp" path="res://assets/imgs/meatball.png" id="2_sfhus"]
 
 [sub_resource type="GDScript" id="GDScript_sfhus"]
@@ -16,6 +17,7 @@ radius = 11.6434
 [node name="Meatball" type="CharacterBody2D"]
 script = ExtResource("1_sfhus")
 max_xp_dropped = 1
+particle_texture = ExtResource("2_5owrn")
 hurt_color = Color(0.798823, 0.169654, 0.175924, 1)
 metadata/_custom_type_script = "uid://bkrndwpfimsd5"
 

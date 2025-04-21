@@ -8,6 +8,7 @@
 radius = 7.07107
 
 [node name="Xp" type="Area2D" groups=["xp"]]
+z_index = -1
 collision_layer = 4
 script = ExtResource("1_8cwu2")
 

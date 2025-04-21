@@ -7,8 +7,8 @@ var enemy_scenes: Dictionary = {
 	
 #put the preload(scene) first, and then after put the odds at which they spawn
 preload("res://scenes/meatball.tscn") : 15,
-preload("res://scenes/tomato.tscn") : 4, 
-preload("res://scenes/cookie.tscn") : 1
+preload("res://scenes/tomato.tscn") : 1, 
+preload("res://scenes/cookie.tscn") : 4
 
 }
 

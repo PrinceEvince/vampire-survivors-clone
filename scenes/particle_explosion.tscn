@@ -7,6 +7,7 @@ _data = [Vector2(0.0909091, 1), 0.0, 0.0, 0, 0, Vector2(0.255682, 0.550562), 0.0
 point_count = 6
 
 [node name="ParticleExplosion" type="CPUParticles2D"]
+z_index = -1
 emitting = false
 amount = 60
 lifetime = 2.07
@@ -18,8 +19,10 @@ emission_sphere_radius = 1.0
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 58.58
-scale_amount_min = 2.0
-scale_amount_max = 5.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 3.0
+scale_amount_max = 7.0
 scale_amount_curve = SubResource("Curve_bg44n")
 script = ExtResource("1_ktone")
 
