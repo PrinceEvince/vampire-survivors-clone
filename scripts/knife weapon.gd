@@ -13,11 +13,16 @@ const SFX_CONTROLLER = preload("uid://citd7jx32xp3d")
 @export var cooldown_timer = 0 # this should always be zero
 @export var knife_direction = Vector2.ZERO # just to initialize the direction to something
 
+var enabled: bool
+
 func _process(delta):
-	cooldown_timer += delta
-	if cooldown_timer >= firerate:
-		cooldown_timer -= firerate
-		shoot()
+	if enabled:
+		cooldown_timer += delta
+		if cooldown_timer >= firerate:
+			cooldown_timer -= firerate
+			shoot()
+	else:
+		pass
 
 func shoot():
 	print("BOOM!")

@@ -13,6 +13,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body == GlobalData.player:
+		body.gain_xp(1)
 		pickup()
 		
 
