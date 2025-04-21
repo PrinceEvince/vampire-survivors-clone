@@ -1,6 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
+const EXPLOSION_PARTICLES = preload(("res://scenes/particle_explosion.tscn"))
 const XP = preload("res://scenes/xp.tscn")
 @export var SPEED = 50
 @export var HEALTH = 15
@@ -30,9 +31,9 @@ func _physics_process(_delta):
 
 		# Flip sprite based on movement direction relative to player
 		if direction.x > 0:
-			sprite.flip_h = true
-		elif direction.x < 0:
 			sprite.flip_h = false
+		elif direction.x < 0:
+			sprite.flip_h = true
 	else:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -44,6 +45,13 @@ func take_damage(amt):
 	# --- Check for Death ---
 	if HEALTH <= 0:
 		die()
+
+	# add on-hit particles
+	var explosion_particles = EXPLOSION_PARTICLES.instantiate()
+	explosion_particles.global_position = global_position
+	explosion_particles.amount = 10
+	explosion_particles.emitting = true
+	GlobalData.game.add_child(explosion_particles)
 
 	if active_hurt_tween and active_hurt_tween.is_valid():
 		active_hurt_tween.kill()
@@ -64,4 +72,12 @@ func die():
 		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
 		xp.global_position = global_position + random_offset
 		GlobalData.game.add_child(xp)
+	
+	# add death particles
+	var explosion_particles = EXPLOSION_PARTICLES.instantiate()
+	explosion_particles.global_position = global_position
+	explosion_particles.amount = 60
+	explosion_particles.emitting = true
+	GlobalData.game.add_child(explosion_particles)
+	
 	queue_free() # Remove the enemy node from the scene

@@ -9,6 +9,7 @@ extends Area2D
 func _on_body_entered(body):
 	if body == GlobalData.player:
 		pickup()
+		
 
 func _physics_process(delta: float) -> void:
 	var player_pos = GlobalData.player.global_position
@@ -20,6 +21,8 @@ func _physics_process(delta: float) -> void:
 		global_position += direction * current_speed * delta
 
 func pickup():
+	GlobalData.player.xp += 1
+	print(GlobalData.player.xp)
 	$AudioStreamPlayer2D.play()
 	$Sprite2D.hide()
 	$Timer.start()

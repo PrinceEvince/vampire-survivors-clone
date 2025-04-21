@@ -129,6 +129,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_ur7pv")
 }
 
-[node name="Spatula" parent="." instance=ExtResource("3_qlg0r")]
-
 [node name="Gun" parent="." instance=ExtResource("3_dqkch")]
+
+[node name="Spatula2" parent="." instance=ExtResource("3_qlg0r")]
+position = Vector2(-10, -1)

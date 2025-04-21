@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsal8alm5qrht"
-path="res://.godot/imported/itlainasausage.png-06bc33a285bda61b4b92ce69a1fd9a3d.ctex"
+uid="uid://umsnmnm4ytfp"
+path="res://.godot/imported/meatball.png-5085c96c0895f130b91ad71e4186dfc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/imgs/itlainasausage.png"
-dest_files=["res://.godot/imported/itlainasausage.png-06bc33a285bda61b4b92ce69a1fd9a3d.ctex"]
+source_file="res://assets/imgs/meatball.png"
+dest_files=["res://.godot/imported/meatball.png-5085c96c0895f130b91ad71e4186dfc9.ctex"]
 
 [params]
 

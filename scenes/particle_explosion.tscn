@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg8tj24ph64lh"]
+
+[ext_resource type="Script" uid="uid://d1c02sn6qdr1v" path="res://scripts/particle_explosion.gd" id="1_ktone"]
+
+[sub_resource type="Curve" id="Curve_bg44n"]
+_data = [Vector2(0.0909091, 1), 0.0, 0.0, 0, 0, Vector2(0.255682, 0.550562), 0.0, 0.0, 0, 0, Vector2(0.363636, 0.359551), 0.0, 0.0, 0, 0, Vector2(0.471591, 0.213483), 0.0, 0.0, 0, 0, Vector2(0.596591, 0.0786518), 0.0, 0.0, 0, 0, Vector2(0.795455, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[node name="ParticleExplosion" type="CPUParticles2D"]
+emitting = false
+amount = 60
+lifetime = 2.07
+one_shot = true
+speed_scale = 3.3
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 58.58
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_bg44n")
+script = ExtResource("1_ktone")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
