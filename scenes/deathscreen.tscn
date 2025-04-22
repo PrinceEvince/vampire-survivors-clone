@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbjfkctvg5hc7"]
+
+[ext_resource type="Script" uid="uid://c0nxamx1qj4hp" path="res://scripts/deathscreen.gd" id="1_ylnw1"]
+
+[node name="Deathscreen" type="Node2D"]
+script = ExtResource("1_ylnw1")
+
+[node name="restart" type="Button" parent="."]
+offset_left = 811.0
+offset_top = 303.0
+offset_right = 1133.0
+offset_bottom = 456.0
+text = "Restart"
+
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 817.0
+offset_top = 605.0
+offset_right = 1142.0
+offset_bottom = 746.0
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 899.0
+offset_top = 155.0
+offset_right = 1045.0
+offset_bottom = 187.0
+text = "You Died, Retard"
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vl7wnfpa7dsd"]
+[gd_scene load_steps=19 format=3 uid="uid://vl7wnfpa7dsd"]
 
 [ext_resource type="Script" uid="uid://dethko4bvfpjt" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://assets/imgs/chef_2.png" id="2_dqkch"]
@@ -7,11 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://bs3psf3exa5dq" path="res://scenes/pan.tscn" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dlxlek8cfesx8" path="res://assets/imgs/xp_bar.png" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://clchgoxvvoje6" path="res://audio/music/lvlup-temp.mp3" id="7_fjrip"]
-[ext_resource type="Script" uid="uid://dvem2ca6upf7o" path="res://scenes/levelup_window.gd" id="7_smehm"]
+[ext_resource type="Script" uid="uid://dvem2ca6upf7o" path="res://scripts/levelup_window.gd" id="7_smehm"]
+[ext_resource type="Texture2D" uid="uid://bm1g1op8rcugq" path="res://assets/imgs/health.png" id="9_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://cnoli06j8lugc" path="res://assets/imgs/redhealth.png" id="10_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
-radius = 7.0
-height = 58.0
+radius = 8.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
+radius = 11.0
+height = 66.0
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
 length = 0.001
@@ -126,6 +132,11 @@ frame = 4
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qhqgy")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_y4r1p")
+
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -163,6 +174,23 @@ offset_top = 245.0
 offset_right = -421.0
 offset_bottom = 276.0
 text = "Level up"
+
+[node name="health_bar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -16.0
+offset_top = 34.0
+offset_right = 16.0
+offset_bottom = 38.0
+max_value = 10.0
+texture_under = ExtResource("10_d2wvv")
+texture_progress = ExtResource("9_y4r1p")
+
+[node name="takedmgdebug" type="Button" parent="."]
+offset_left = -287.0
+offset_top = 246.0
+offset_right = -174.0
+offset_bottom = 277.0
+text = "Take Damage"
 
 [node name="LevelLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -202,7 +230,14 @@ stream = ExtResource("7_fjrip")
 volume_db = -4.0
 parameters/looping = true
 
+[node name="iFrames" type="Timer" parent="."]
+wait_time = 0.15
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="lvlupdebug" to="." method="_on_lvlupdebug_pressed"]
+[connection signal="pressed" from="takedmgdebug" to="." method="_on_takedmgdebug_pressed"]
 [connection signal="canceled" from="LevelUp/AcceptDialog" to="." method="_on_accept_dialog_canceled"]
 [connection signal="confirmed" from="LevelUp/AcceptDialog" to="." method="_on_accept_dialog_confirmed"]
 [connection signal="custom_action" from="LevelUp/AcceptDialog" to="." method="_on_accept_dialog_custom_action"]
+[connection signal="timeout" from="iFrames" to="." method="_on_i_frames_timeout"]

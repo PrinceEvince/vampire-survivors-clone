@@ -17,12 +17,29 @@ var current_xp: int = 0
 var xp_needed: int = 0
 @onready var xp_bar = %xp_bar
 
+var hp = 10
+@onready var health_bar = %health_bar
+var bodies_entered = []
+var active_hurt_tween: Tween
+@export var hurt_color = Color(1.0, 0.5, 0.5)  # Reddish tint for hurt effect
+@export var normal_color = Color(1.0, 1.0, 1.0) # Default modulate is usually white
+@export var hurt_effect_duration = 0.15 # Total time for the flash (flash on + flash off)
+
+@export var invincible = false
 
 func _ready():
 	level = 1
 	xp_needed = calculate_xp_to_next_lvl(level)
 	xp_bar.max_value = xp_needed
 	GlobalData.player = self
+	health_bar.value = 10
+
+func _process(_delta):
+	if len(bodies_entered) > 0:
+		if not invincible:
+			lose_hp(1)
+			invincible = true
+			$iFrames.start()
 
 func _physics_process(_delta):
 	var input_dir = Input.get_vector("a", "d", "w", "s")
@@ -70,13 +87,21 @@ func calculate_xp_to_next_lvl(level: int):
 		xp_needed = 1
 	return xp_needed
 	
+func lose_hp(dmg: int):
+	hp -= dmg
+	health_bar.value = hp
+	active_hurt_tween = create_tween()
+	active_hurt_tween.tween_property(sprite, "modulate", hurt_color, hurt_effect_duration / 2.0)
+	active_hurt_tween.tween_property(sprite, "modulate", normal_color, hurt_effect_duration / 2.0)
+	if hp == 0:
+		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
+
 func gain_xp(amt: int):
 	current_xp += amt
 	xp_bar.value = current_xp
 	while current_xp >= xp_needed:
 		#level up stuff here
 		level += 1
-		
 		
 		var sfx_player = AudioStreamPlayer.new()
 		%LevelUp.add_child(sfx_player)
@@ -120,3 +145,16 @@ func _on_accept_dialog_custom_action(action: StringName) -> void:
 func _on_accept_dialog_canceled() -> void:
 	%levelup.stop()
 	get_tree().paused = false
+
+func _on_takedmgdebug_pressed() -> void:
+	lose_hp(1)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		bodies_entered.append(body)
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	bodies_entered.erase(body)
+
+func _on_i_frames_timeout() -> void:
+	invincible = false
