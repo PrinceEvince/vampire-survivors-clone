@@ -17,8 +17,8 @@ radius = 6.0
 height = 62.0
 
 [node name="Knife" type="Area2D"]
-collision_layer = 255
-collision_mask = 255
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_l5glv")
 
 [node name="KnifeSprite" type="Sprite2D" parent="."]

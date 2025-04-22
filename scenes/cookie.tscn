@@ -14,9 +14,10 @@ radius = 23.0
 
 [node name="Cookie" type="CharacterBody2D"]
 script = ExtResource("1_2rrt0")
-SPEED = 225
-min_xp_dropped = 50
-max_xp_dropped = 50
+SPEED = 210
+HEALTH = 8
+min_xp_dropped = 10
+max_xp_dropped = 15
 particle_texture = ExtResource("2_on5vl")
 hurt_color = Color(0.863436, 5.31845e-06, 7.70092e-07, 1)
 metadata/_custom_type_script = "uid://bkrndwpfimsd5"

@@ -16,8 +16,10 @@ const XP = preload("res://scenes/xp.tscn")
 @export var normal_color = Color(1.0, 1.0, 1.0) # Default modulate is usually white
 @export var hurt_effect_duration = 0.15 # Total time for the flash (flash on + flash off)
 # Variable to store the active hurt tween
+@export var use_default_movement: bool = true
 var active_hurt_tween: Tween
 var newaudioplayer
+
 
 func _ready():
 	
@@ -31,7 +33,7 @@ func _ready():
 	add_child(newaudioplayer)
 	
 func _physics_process(_delta):
-	if GlobalData.player:
+	if GlobalData.player and use_default_movement:
 		var direction = (GlobalData.player.global_position - global_position).normalized()
 		velocity = direction * SPEED
 		move_and_slide()

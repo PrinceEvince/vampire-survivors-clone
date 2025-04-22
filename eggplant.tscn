@@ -1,0 +1,158 @@
+[gd_scene load_steps=11 format=3 uid="uid://mojlp4763pa2"]
+
+[ext_resource type="Script" uid="uid://70ybkoesxlf6" path="res://eggplant.gd" id="1_wjyer"]
+[ext_resource type="Texture2D" uid="uid://b8qre1310ixew" path="res://assets/imgs/eggplant.png" id="2_0vk45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42iu4"]
+size = Vector2(944.5, 335)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vk45"]
+size = Vector2(492, 417.5)
+
+[sub_resource type="Animation" id="Animation_wjyer"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.192788),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_0vk45"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1.0052)]
+}
+
+[sub_resource type="Animation" id="Animation_42iu4"]
+resource_name = "flip_hitboxes"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Area2D2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1.0052)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42iu4"]
+_data = {
+&"RESET": SubResource("Animation_0vk45"),
+&"flip_hitboxes": SubResource("Animation_42iu4"),
+&"walk": SubResource("Animation_wjyer")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjyer"]
+size = Vector2(291.255, 572.681)
+
+[sub_resource type="Curve" id="Curve_wjyer"]
+_data = [Vector2(0.0170455, 1), 0.0, 0.0, 0, 0, Vector2(0.369318, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(0.172272, 0.172272)
+script = ExtResource("1_wjyer")
+HEALTH = 20
+min_xp_dropped = 10
+max_xp_dropped = 20
+metadata/_custom_type_script = "uid://bkrndwpfimsd5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(423, -51)
+texture = ExtResource("2_0vk45")
+hframes = 4
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(498.25, 239)
+scale = Vector2(1, 1.0052)
+collision_layer = 2
+
+[node name="FallHitbox" type="CollisionShape2D" parent="Area2D2"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_42iu4")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(180, 55.75)
+shape = SubResource("RectangleShape2D_0vk45")
+
+[node name="Charge" type="Timer" parent="."]
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+
+[node name="walk" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_42iu4")
+}
+
+[node name="body" type="CollisionShape2D" parent="."]
+position = Vector2(14.512, -40.6335)
+scale = Vector2(1.09616, 1.19607)
+shape = SubResource("RectangleShape2D_wjyer")
+
+[node name="boom" type="CPUParticles2D" parent="."]
+position = Vector2(496.373, 141.328)
+emitting = false
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.39
+emission_shape = 3
+emission_rect_extents = Vector2(89.7, 95.185)
+direction = Vector2(1, -6.915)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 805.48
+initial_velocity_max = 805.48
+scale_amount_min = 0.0
+scale_amount_max = 80.81
+scale_amount_curve = SubResource("Curve_wjyer")
+color = Color(0.657528, 0.572303, 1, 1)
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Charge" to="." method="_on_charge_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

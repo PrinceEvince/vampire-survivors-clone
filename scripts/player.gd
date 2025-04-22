@@ -93,7 +93,7 @@ func lose_hp(dmg: int):
 	active_hurt_tween = create_tween()
 	active_hurt_tween.tween_property(sprite, "modulate", hurt_color, hurt_effect_duration / 2.0)
 	active_hurt_tween.tween_property(sprite, "modulate", normal_color, hurt_effect_duration / 2.0)
-	if hp == 0:
+	if hp <= 0:
 		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 
 func gain_xp(amt: int):
