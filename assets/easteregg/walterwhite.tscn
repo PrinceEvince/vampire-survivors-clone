@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c48scp03km4jv"]
+
+[ext_resource type="Script" uid="uid://bkrndwpfimsd5" path="res://scripts/enemy.gd" id="1_32f72"]
+[ext_resource type="Texture2D" uid="uid://uhr1bine1qb1" path="res://assets/easteregg/waltermoment.png" id="2_jyye3"]
+[ext_resource type="AudioStream" uid="uid://156cor5gnm2g" path="res://assets/easteregg/my name is walter hartwell white.ogg" id="3_wppkb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuh7x"]
+size = Vector2(158, 158)
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_32f72")
+SPEED = 120
+HEALTH = 500
+min_xp_dropped = 500
+max_xp_dropped = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("2_jyye3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vuh7x")
+
+[node name="confession" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wppkb")
+volume_db = 11.661
+autoplay = true
+max_distance = 1273.0
+attenuation = 1.18921

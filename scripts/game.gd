@@ -6,9 +6,10 @@ var enemy_scenes: Dictionary = {
 	
 	
 #put the preload(scene) first, and then after put the odds at which they spawn
-preload("res://scenes/meatball.tscn") : 15,
-preload("res://scenes/tomato.tscn") : 1, 
-preload("res://scenes/cookie.tscn") : 4
+preload("res://scenes/meatball.tscn") : 150,
+preload("res://scenes/tomato.tscn") : 50, 
+preload("res://scenes/cookie.tscn") : 70,
+preload("res://assets/easteregg/walterwhite.tscn") : 0.01
 
 }
 
