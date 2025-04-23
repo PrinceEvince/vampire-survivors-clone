@@ -33,6 +33,8 @@ func _ready():
 	xp_bar.max_value = xp_needed
 	GlobalData.player = self
 	health_bar.value = 10
+	if GlobalData.frycook == true:
+		%Sprite2D.texture = load("res://assets/imgs/frycook.png")
 
 func _process(_delta):
 	if len(bodies_entered) > 0:
