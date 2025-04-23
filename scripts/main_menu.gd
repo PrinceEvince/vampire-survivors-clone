@@ -1,8 +1,8 @@
 extends Node2D
 
-var root = get_parent()
-var game = preload("res://scenes/game.tscn")
-
 func _on_button_pressed() -> void:
-	root.add_child(game)
-	queue_free()
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+
+func _on_shop_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/shop.tscn")

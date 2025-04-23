@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://mojlp4763pa2"]
 
-[ext_resource type="Script" uid="uid://70ybkoesxlf6" path="res://eggplant.gd" id="1_wjyer"]
-[ext_resource type="Texture2D" uid="uid://b8qre1310ixew" path="res://assets/imgs/eggplant.png" id="2_0vk45"]
+[ext_resource type="Script" uid="uid://70ybkoesxlf6" path="res://scripts/eggplant.gd" id="1_l4pqb"]
+[ext_resource type="Texture2D" uid="uid://b8qre1310ixew" path="res://assets/imgs/eggplant.png" id="2_25ql1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42iu4"]
 size = Vector2(944.5, 335)
@@ -86,7 +86,7 @@ point_count = 2
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.172272, 0.172272)
-script = ExtResource("1_wjyer")
+script = ExtResource("1_l4pqb")
 HEALTH = 20
 min_xp_dropped = 10
 max_xp_dropped = 20
@@ -95,7 +95,7 @@ metadata/_custom_type_script = "uid://bkrndwpfimsd5"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(423, -51)
-texture = ExtResource("2_0vk45")
+texture = ExtResource("2_25ql1")
 hframes = 4
 
 [node name="Area2D2" type="Area2D" parent="."]

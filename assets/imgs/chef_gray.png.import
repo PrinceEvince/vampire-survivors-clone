@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyyrlixggfsur"
-path="res://.godot/imported/xp_die.png-414671a8765765655f24bc218cf50e7c.ctex"
+uid="uid://saccevdtcrg8"
+path="res://.godot/imported/chef_gray.png-08aecd4b9916fc5ae38817cd906c0327.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/imgs/xp_die.png"
-dest_files=["res://.godot/imported/xp_die.png-414671a8765765655f24bc218cf50e7c.ctex"]
+source_file="res://assets/imgs/chef_gray.png"
+dest_files=["res://.godot/imported/chef_gray.png-08aecd4b9916fc5ae38817cd906c0327.ctex"]
 
 [params]
 

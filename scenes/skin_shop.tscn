@@ -1,0 +1,169 @@
+[gd_scene load_steps=10 format=3 uid="uid://dp1xukmk425g"]
+
+[ext_resource type="Script" uid="uid://couvmslu7q3cq" path="res://scripts/skin_shop.gd" id="1_v4jsl"]
+[ext_resource type="Texture2D" uid="uid://etfj72prsvfy" path="res://assets/imgs/frycook.png" id="2_j41gd"]
+[ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://assets/imgs/chef.png" id="3_j41gd"]
+
+[sub_resource type="Animation" id="Animation_j41gd"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChefSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ng4dn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChefSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kkecq"]
+_data = {
+&"RESET": SubResource("Animation_ng4dn"),
+&"idle": SubResource("Animation_j41gd")
+}
+
+[sub_resource type="Animation" id="Animation_kkecq"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FryCook/FryCookSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_r6u8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FryCook/FryCookSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ng4dn"]
+_data = {
+&"RESET": SubResource("Animation_r6u8s"),
+&"idle": SubResource("Animation_kkecq")
+}
+
+[node name="SkinShop" type="Node2D"]
+script = ExtResource("1_v4jsl")
+
+[node name="Back" type="Button" parent="."]
+offset_left = 54.0
+offset_top = 952.0
+offset_right = 194.0
+offset_bottom = 1027.0
+text = "Back"
+
+[node name="Chef" type="Node2D" parent="."]
+
+[node name="ChefSprite" type="Sprite2D" parent="Chef"]
+position = Vector2(126, 583)
+scale = Vector2(4.25658, 4.25)
+texture = ExtResource("3_j41gd")
+hframes = 8
+vframes = 2
+
+[node name="ChefButton" type="Button" parent="Chef"]
+offset_left = 65.0
+offset_top = 704.0
+offset_right = 190.0
+offset_bottom = 769.0
+text = "Equip"
+
+[node name="ChefAnim" type="AnimationPlayer" parent="Chef"]
+libraries = {
+&"": SubResource("AnimationLibrary_kkecq")
+}
+
+[node name="ChefLabel" type="Label" parent="Chef"]
+offset_left = 107.0
+offset_top = 454.0
+offset_right = 147.0
+offset_bottom = 477.0
+text = "Chef"
+
+[node name="FryCook" type="Node2D" parent="."]
+
+[node name="FryCookSprite" type="Sprite2D" parent="FryCook"]
+position = Vector2(318, 583)
+scale = Vector2(4.23684, 4.27083)
+texture = ExtResource("2_j41gd")
+hframes = 8
+vframes = 2
+
+[node name="FryCookButton" type="Button" parent="FryCook"]
+offset_left = 247.0
+offset_top = 700.0
+offset_right = 385.0
+offset_bottom = 775.0
+text = "15 Gems"
+
+[node name="FryCookAnim" type="AnimationPlayer" parent="FryCook"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ng4dn")
+}
+
+[node name="FryCookLabel" type="Label" parent="FryCook"]
+offset_left = 283.0
+offset_top = 454.0
+offset_right = 356.0
+offset_bottom = 487.0
+text = "Fry Cook"
+
+[node name="NotEnoughGems" type="Label" parent="."]
+visible = false
+offset_left = 850.0
+offset_top = 867.0
+offset_right = 994.0
+offset_bottom = 890.0
+text = "Not Enough Gems!"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="GemCount" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 165.0
+offset_bottom = 84.0
+text = "Gems: "
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Chef/ChefButton" to="." method="_on_chef_button_pressed"]
+[connection signal="pressed" from="FryCook/FryCookButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="FryCook/FryCookButton" to="." method="_on_fry_cook_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

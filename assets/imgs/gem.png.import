@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://etfj72prsvfy"
-path="res://.godot/imported/frycook.png-8d906592ab63103839535f2c70be80eb.ctex"
+uid="uid://bx2sw5ovjjyb2"
+path="res://.godot/imported/gem.png-e86bc8df3a4732d49008b59fc3b03a3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/imgs/frycook.png"
-dest_files=["res://.godot/imported/frycook.png-8d906592ab63103839535f2c70be80eb.ctex"]
+source_file="res://assets/imgs/gem.png"
+dest_files=["res://.godot/imported/gem.png-e86bc8df3a4732d49008b59fc3b03a3c.ctex"]
 
 [params]
 

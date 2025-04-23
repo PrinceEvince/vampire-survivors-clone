@@ -26,4 +26,13 @@ offset_right = 1045.0
 offset_bottom = 187.0
 text = "You Died, Retard"
 
+[node name="gemcount" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 898.0
+offset_top = 813.0
+offset_right = 1104.0
+offset_bottom = 855.0
+text = "Gems: "
+
 [connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="mainmenu" to="." method="_on_mainmenu_pressed"]

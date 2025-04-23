@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctece5up2ra27"
-path="res://.godot/imported/chef_2.png-7b1198fc56d279299eae4a1583362999.ctex"
+uid="uid://bfjpqtkptpg16"
+path="res://.godot/imported/frycook_gray.png-6ea5ccee7171d3dad3ef33ada424ae68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/imgs/chef_2.png"
-dest_files=["res://.godot/imported/chef_2.png-7b1198fc56d279299eae4a1583362999.ctex"]
+source_file="res://assets/imgs/frycook_gray.png"
+dest_files=["res://.godot/imported/frycook_gray.png-6ea5ccee7171d3dad3ef33ada424ae68.ctex"]
 
 [params]
 

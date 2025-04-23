@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 GlobalData="*res://scripts/GlobalData.gd"
+UserData="*res://scripts/UserData.gd"
 
 [display]
 

@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const EXPLOSION_PARTICLES = preload(("res://scenes/particle_explosion.tscn"))
 const XP = preload("res://scenes/xp.tscn")
+const GEM = preload("res://scenes/gem.tscn")
 @export var SPEED = 50
 @export var HEALTH = 15
 @onready var sprite: Sprite2D = $Sprite2D
@@ -95,6 +96,13 @@ func die():
 		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
 		xp.global_position = global_position + random_offset
 		GlobalData.game.add_child(xp)
+	
+	var gem_chance = randi_range(1,2)
+	print("number generated: ", gem_chance)
+	if gem_chance == 1:
+		var gem = GEM.instantiate()
+		gem.global_position = self.position
+		GlobalData.game.add_child(gem)
 	
 	# add death particles
 	var explosion_particles = EXPLOSION_PARTICLES.instantiate()

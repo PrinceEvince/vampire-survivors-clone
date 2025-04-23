@@ -9,7 +9,7 @@ var enemy_scenes: Dictionary = {
 preload("res://scenes/meatball.tscn") : 1,
 preload("res://scenes/tomato.tscn") : 1, 
 preload("res://scenes/cookie.tscn") : 1,
-preload("res://eggplant.tscn") : 0,
+preload("res://scenes/eggplant.tscn") : 0,
 preload("res://assets/easteregg/walterwhite.tscn") : 0.01
 
 }

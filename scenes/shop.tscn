@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bimcijl6yut8s"]
+
+[ext_resource type="Script" uid="uid://dvnvwvk3rj7fs" path="res://scripts/shop.gd" id="1_lx5au"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_lx5au")
+
+[node name="Upgrades" type="Button" parent="."]
+offset_left = 854.0
+offset_top = 275.0
+offset_right = 1047.0
+offset_bottom = 375.0
+text = "Permanent Upgrades"
+
+[node name="Skins" type="Button" parent="."]
+offset_left = 844.0
+offset_top = 599.0
+offset_right = 1056.0
+offset_bottom = 707.0
+text = "Skins"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 53.0
+offset_top = 938.0
+offset_right = 268.0
+offset_bottom = 1037.0
+text = "Back"
+
+[connection signal="pressed" from="Upgrades" to="." method="_on_upgrades_pressed"]
+[connection signal="pressed" from="Skins" to="." method="_on_skins_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

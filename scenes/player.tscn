@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://vl7wnfpa7dsd"]
 
 [ext_resource type="Script" uid="uid://dethko4bvfpjt" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://assets/imgs/chef_2.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://assets/imgs/chef.png" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://dmtnjvf3mtg6r" path="res://scenes/knife weapon.tscn" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://c804m0o62hpqk" path="res://scenes/spatula.tscn" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bs3psf3exa5dq" path="res://scenes/pan.tscn" id="5_qlg0r"]
