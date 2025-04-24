@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp1xukmk425g"]
+[gd_scene load_steps=14 format=3 uid="uid://dp1xukmk425g"]
 
 [ext_resource type="Script" uid="uid://couvmslu7q3cq" path="res://scripts/skin_shop.gd" id="1_v4jsl"]
 [ext_resource type="Texture2D" uid="uid://etfj72prsvfy" path="res://assets/imgs/frycook.png" id="2_j41gd"]
 [ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://assets/imgs/chef.png" id="3_j41gd"]
+[ext_resource type="Texture2D" uid="uid://dy1y7v5ucg5uu" path="res://assets/imgs/coolguy.png" id="4_kkecq"]
 
 [sub_resource type="Animation" id="Animation_ng4dn"]
 length = 0.001
@@ -78,6 +79,43 @@ _data = {
 &"idle": SubResource("Animation_kkecq")
 }
 
+[sub_resource type="Animation" id="Animation_16oax"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoolGuySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a06s5"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoolGuySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mea2j"]
+_data = {
+&"RESET": SubResource("Animation_16oax"),
+&"idle": SubResource("Animation_a06s5")
+}
+
 [node name="SkinShop" type="Node2D"]
 script = ExtResource("1_v4jsl")
 
@@ -145,6 +183,34 @@ offset_right = 356.0
 offset_bottom = 487.0
 text = "Fry Cook"
 
+[node name="CoolGuy" type="Node2D" parent="."]
+
+[node name="CoolGuySprite" type="Sprite2D" parent="CoolGuy"]
+position = Vector2(508, 584)
+scale = Vector2(4.30263, 4.28125)
+texture = ExtResource("4_kkecq")
+hframes = 8
+vframes = 2
+
+[node name="CoolGuyButton" type="Button" parent="CoolGuy"]
+offset_left = 440.0
+offset_top = 704.0
+offset_right = 578.0
+offset_bottom = 776.0
+text = "50 Gems"
+
+[node name="CoolGuyAnim" type="AnimationPlayer" parent="CoolGuy"]
+libraries = {
+&"": SubResource("AnimationLibrary_mea2j")
+}
+
+[node name="CoolGuyLabel" type="Label" parent="CoolGuy"]
+offset_left = 473.0
+offset_top = 454.0
+offset_right = 544.0
+offset_bottom = 484.0
+text = "Cool Guy"
+
 [node name="NotEnoughGems" type="Label" parent="."]
 visible = false
 offset_left = 850.0
@@ -158,12 +224,13 @@ text = "Not Enough Gems!"
 [node name="GemCount" type="Label" parent="."]
 offset_left = 15.0
 offset_top = 17.0
-offset_right = 165.0
-offset_bottom = 84.0
+offset_right = 122.0
+offset_bottom = 43.0
 text = "Gems: "
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Chef/ChefButton" to="." method="_on_chef_button_pressed"]
 [connection signal="pressed" from="FryCook/FryCookButton" to="." method="_on_fry_cook_button_pressed"]
 [connection signal="pressed" from="FryCook/FryCookButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CoolGuy/CoolGuyButton" to="." method="_on_cool_guy_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

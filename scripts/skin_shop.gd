@@ -5,6 +5,7 @@ extends Node2D
 func _ready():
 	$FryCook/FryCookAnim.play("idle")
 	$Chef/ChefAnim.play("idle")
+	$CoolGuy/CoolGuyAnim.play("idle")
 	if UserData.frycook == true:
 		$FryCook/FryCookSprite.texture = load("res://assets/imgs/frycook_gray.png")
 		$FryCook/FryCookButton.text = "Equipped"
@@ -20,7 +21,10 @@ func _on_fry_cook_button_pressed() -> void:
 		if UserData.gems >= 15:
 			#This buys the frycook skin for the first time
 			equip_frycook()
-			unequip_chef()
+			if UserData.chef == true:
+				unequip_chef()
+			if UserData.coolguy == true:
+				unequip_coolguy()
 			UserData.gems -= 15
 			UserData.frycook_purchased = true
 		else:
@@ -28,7 +32,10 @@ func _on_fry_cook_button_pressed() -> void:
 			$Timer.start()
 	elif UserData.frycook_purchased == true:
 		equip_frycook()
-		unequip_chef()
+		if UserData.chef == true:
+			unequip_chef()
+		if UserData.coolguy == true:
+			unequip_coolguy()
 
 
 func _on_back_pressed() -> void:
@@ -54,6 +61,15 @@ func unequip_frycook():
 	$FryCook/FryCookButton.text = "Equip"
 	UserData.frycook = false
 
+func equip_coolguy():
+	$CoolGuy/CoolGuySprite.texture = load("res://assets/imgs/coolguy_gray.png")
+	$CoolGuy/CoolGuyButton.text = "Equipped"
+	UserData.coolguy = true
+	
+func unequip_coolguy():
+	$CoolGuy/CoolGuySprite.texture = load("res://assets/imgs/coolguy.png")
+	$CoolGuy/CoolGuyButton.text = "Equip"
+	UserData.coolguy = false
 
 func _on_timer_timeout() -> void:
 	$NotEnoughGems.hide()
@@ -61,4 +77,30 @@ func _on_timer_timeout() -> void:
 func _on_chef_button_pressed() -> void:
 	if UserData.chef == false:
 		equip_chef()
-		unequip_frycook()
+		if UserData.frycook == true:
+			unequip_frycook()
+		if UserData.coolguy == true:
+			unequip_coolguy()
+
+
+func _on_cool_guy_button_pressed() -> void:
+	if UserData.coolguy_purchased == false:
+		if UserData.gems >= 50:
+			#This buys the frycook skin for the first time
+			equip_coolguy()
+			if UserData.chef == true:
+				unequip_chef()
+			if UserData.frycook == true:
+				unequip_frycook()
+			UserData.gems -= 50
+			UserData.coolguy = true
+			UserData.coolguy_purchased = true
+		else:
+			$NotEnoughGems.show()
+			$Timer.start()
+	elif UserData.coolguy_purchased == true:
+		equip_coolguy()
+		if UserData.chef == true:
+			unequip_chef()
+		if UserData.frycook == true:
+			unequip_frycook()

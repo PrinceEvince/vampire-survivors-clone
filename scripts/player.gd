@@ -38,7 +38,7 @@ func _ready():
 	if UserData.frycook == true:
 		%Sprite2D.texture = load("res://assets/imgs/frycook.png")
 	if UserData.coolguy == true:
-		pass
+		%Sprite2D.texture = load("res://assets/imgs/coolguy.png")
 
 func _process(_delta):
 	if len(bodies_entered) > 0:
