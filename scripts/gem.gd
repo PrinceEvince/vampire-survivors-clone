@@ -13,6 +13,7 @@ func pickup():
 	UserData.gems += 1
 	gem_pickup_sfx.play()
 	$Sprite2D.hide()
+	$CollisionShape2D.queue_free()
 	$Timer.start()
 
 func _on_timer_timeout() -> void:

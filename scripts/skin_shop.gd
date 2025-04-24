@@ -58,7 +58,6 @@ func unequip_frycook():
 func _on_timer_timeout() -> void:
 	$NotEnoughGems.hide()
 
-
 func _on_chef_button_pressed() -> void:
 	if UserData.chef == false:
 		equip_chef()
