@@ -2,8 +2,9 @@ class_name Enemy
 extends CharacterBody2D
 
 const EXPLOSION_PARTICLES = preload(("res://scenes/particle_explosion.tscn"))
-const XP = preload("res://scenes/xp_pickup.tscn")
-const GEM = preload("res://scenes/gem_pickup.tscn")
+const XP_PICKUP = preload("res://scenes/xp_pickup.tscn")
+const GEM_PICKUP = preload("res://scenes/gem_pickup.tscn")
+const HEALTH_PICKUP = preload("res://scenes/health_pickup.tscn")
 @export var SPEED = 50
 @export var HEALTH = 15
 @onready var sprite: Sprite2D = $Sprite2D
@@ -92,7 +93,7 @@ func die():
 	set_physics_process(false)
 	randomize()
 	for num in randf_range(min_xp_dropped, ((randi() % (max_xp_dropped+1))+min_xp_dropped)):
-		var xp = XP.instantiate()
+		var xp = XP_PICKUP.instantiate()
 		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
 		xp.global_position = global_position + random_offset
 		GlobalData.game.add_child(xp)
@@ -100,9 +101,21 @@ func die():
 	var gem_chance = randi_range(1,2)
 	# print("number generated: ", gem_chance) # debug
 	if gem_chance == 1:
-		var gem = GEM.instantiate()
+		var gem = GEM_PICKUP.instantiate()
 		gem.global_position = self.position
+		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
+		gem.global_position = global_position + random_offset
 		GlobalData.game.add_child(gem)
+		
+	var health_chance = randi_range(1,1)
+	# print("number generated: ", gem_chance) # debug
+	if health_chance == 1:
+		var health = HEALTH_PICKUP.instantiate()
+		health.global_position = self.position
+		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
+		health.global_position = global_position + random_offset
+		GlobalData.game.add_child(health)
+	
 	
 	# add death particles
 	var explosion_particles = EXPLOSION_PARTICLES.instantiate()

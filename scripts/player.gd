@@ -102,6 +102,10 @@ func lose_hp(dmg: int):
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 
+func gain_hp(amt):
+	hp += amt
+	health_bar.value = hp
+
 func gain_xp(amt: int):
 	current_xp += amt
 	xp_bar.value = current_xp

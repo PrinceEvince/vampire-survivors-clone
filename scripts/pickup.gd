@@ -54,6 +54,7 @@ func give_player_stuff():
 	pass # override this method to give player stuff depending on what type of pickup it is
 
 func shutup():
+	# slightly fancy code to only stop sfx of the same type of object that was picked up (thx chatgpt)
 	var my_script = self.get_script()
 	for node in get_tree().get_nodes_in_group("pickups"):
 		if node.get_script() == my_script:
