@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c804m0o62hpqk" path="res://scenes/spatula.tscn" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bs3psf3exa5dq" path="res://scenes/pan.tscn" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dlxlek8cfesx8" path="res://assets/imgs/xp_bar.png" id="6_tuyoq"]
-[ext_resource type="AudioStream" uid="uid://clchgoxvvoje6" path="res://audio/music/lvlup-temp.mp3" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://clchgoxvvoje6" path="res://assets/audio/music/lvlup-temp.mp3" id="7_fjrip"]
 [ext_resource type="Script" uid="uid://dvem2ca6upf7o" path="res://scripts/levelup_window.gd" id="7_smehm"]
 [ext_resource type="Texture2D" uid="uid://bm1g1op8rcugq" path="res://assets/imgs/health.png" id="9_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://cnoli06j8lugc" path="res://assets/imgs/redhealth.png" id="10_d2wvv"]

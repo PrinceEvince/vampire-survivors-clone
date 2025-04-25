@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3wqygudb5pnd"]
+
+[ext_resource type="Script" uid="uid://c5cvunv74wsxl" path="res://scripts/pickup.gd" id="1_pg2rt"]
+
+[node name="Pickup" type="Area2D" groups=["pickups"]]
+script = ExtResource("1_pg2rt")
+pitch_scale = false
+vacuum = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

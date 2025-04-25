@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbjfkctvg5hc7"]
 
 [ext_resource type="Script" uid="uid://c0nxamx1qj4hp" path="res://scripts/deathscreen.gd" id="1_ylnw1"]
-[ext_resource type="Script" uid="uid://drxf501n53tmq" path="res://scripts/gemcount.gd" id="2_uurjc"]
+[ext_resource type="Script" uid="uid://drxf501n53tmq" path="res://scenes/gemcount.gd" id="2_uurjc"]
 
 [node name="Deathscreen" type="Node2D"]
 script = ExtResource("1_ylnw1")

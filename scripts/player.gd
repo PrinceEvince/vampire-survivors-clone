@@ -111,7 +111,7 @@ func gain_xp(amt: int):
 		
 		var sfx_player = AudioStreamPlayer.new()
 		%LevelUp.add_child(sfx_player)
-		sfx_player.stream = preload("res://audio/levelup.mp3")
+		sfx_player.stream = preload("res://assets/audio/levelup.mp3")
 		sfx_player.volume_db = -9
 		sfx_player.play()
 		%levelup.play()

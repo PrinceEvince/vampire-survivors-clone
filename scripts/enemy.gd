@@ -2,8 +2,8 @@ class_name Enemy
 extends CharacterBody2D
 
 const EXPLOSION_PARTICLES = preload(("res://scenes/particle_explosion.tscn"))
-const XP = preload("res://scenes/xp.tscn")
-const GEM = preload("res://scenes/gem.tscn")
+const XP = preload("res://scenes/xp_pickup.tscn")
+const GEM = preload("res://scenes/gem_pickup.tscn")
 @export var SPEED = 50
 @export var HEALTH = 15
 @onready var sprite: Sprite2D = $Sprite2D
@@ -57,10 +57,10 @@ func take_damage(amt):
 	HEALTH -= amt
 	
 	var hurt_sfx: Array[AudioStream] = [
-	preload("res://audio/hit1.ogg"),
-	preload("res://audio/hit2.ogg"),
-	preload("res://audio/hit3.ogg"),
-	preload("res://audio/hit4.ogg")
+	preload("res://assets/audio/hit1.ogg"),
+	preload("res://assets/audio/hit2.ogg"),
+	preload("res://assets/audio/hit3.ogg"),
+	preload("res://assets/audio/hit4.ogg")
 ]
 	newaudioplayer.stream = hurt_sfx.pick_random()
 	newaudioplayer.play()
@@ -98,7 +98,7 @@ func die():
 		GlobalData.game.add_child(xp)
 	
 	var gem_chance = randi_range(1,2)
-	print("number generated: ", gem_chance)
+	# print("number generated: ", gem_chance) # debug
 	if gem_chance == 1:
 		var gem = GEM.instantiate()
 		gem.global_position = self.position
