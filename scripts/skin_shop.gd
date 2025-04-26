@@ -1,12 +1,24 @@
 extends Node2D
 
 func _ready():
+	#Shit for Frycook
 	$FryCook/FryCookAnim.play("idle")
-	$Chef/ChefAnim.play("idle")
-	$CoolGuy/CoolGuyAnim.play("idle")
 	if UserData.frycook == true:
 		$FryCook/FryCookSprite.texture = load("res://assets/imgs/frycook_gray.png")
 		$FryCook/FryCookButton.text = "Equipped"
+	if UserData.frycook_purchased == true and UserData.frycook == false:
+		$FryCook/FryCookButton.text == "Equip"
+	
+	#Shit for CoolGuy
+	$CoolGuy/CoolGuyAnim.play("idle")
+	if UserData.coolguy == true:
+		$CoolGuy/CoolGuySprite.texture = load("res://assets/imgs/coolguy_gray.png")
+		$CoolGuy/CoolGuyButton.text = "Equipped"
+	if UserData.coolguy_purchased == true and UserData.coolguy == false:
+		$CoolGuy/CoolGuyButton.text = "Equip"
+		
+	#Shit for chef
+	$Chef/ChefAnim.play("idle")
 	if UserData.chef == true:
 		$Chef/ChefSprite.texture = load("res://assets/imgs/chef_gray.png")
 		$Chef/ChefButton.text = "Equipped"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c1s7v35ep3ru"]
 
-[ext_resource type="Script" uid="uid://r04tjfwwnya6" path="res://chili.gd" id="1_kbky6"]
+[ext_resource type="Script" uid="uid://r04tjfwwnya6" path="res://scripts/chili.gd" id="1_kbky6"]
 [ext_resource type="Texture2D" uid="uid://da8xlf78wiqv8" path="res://assets/imgs/chili.png" id="2_2c5vv"]
 [ext_resource type="Texture2D" uid="uid://6tev2qv3jux4" path="res://assets/imgs/chili_particle.png" id="2_6urnh"]
 

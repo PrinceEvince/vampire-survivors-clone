@@ -20,16 +20,18 @@ func load_user_data():
 	var parse_result = json.parse(json_string)
 	var data = json.get_data()
 	if data is Dictionary:
+		self.chef = data.get("chef", false)
 		self.frycook_purchased = data.get("frycook purchased", false)
+		self.frycook = data.get("frycook", false)
 		self.coolguy_purchased = data.get("coolguy purchased", false)
+		self.coolguy = data.get("coolguy", false)
 		self.gems = data.get("gems", 0)
 		print("Successfully loaded data from: ", SAVE_PATH)
 
 	
 func save_user_data(): # run this when the game closes or maybe in between lives
 	print("saving!")
-	print(gems)
-	var data_to_save = {"frycook purchased": frycook_purchased, "coolguy purchased": coolguy_purchased, "gems": gems}
+	var data_to_save = {"chef": chef, "frycook purchased": frycook_purchased, "frycook": frycook, "coolguy purchased": coolguy_purchased, "coolguy": coolguy, "gems": gems}
 	var json_string = JSON.stringify(data_to_save)
 	var file = FileAccess.open("res://save data/save.json", FileAccess.WRITE)
 	file.store_string(json_string)
