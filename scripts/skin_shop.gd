@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 func _ready():
 	$FryCook/FryCookAnim.play("idle")
 	$Chef/ChefAnim.play("idle")

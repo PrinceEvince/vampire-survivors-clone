@@ -87,7 +87,6 @@ func take_damage(amt):
 	active_hurt_tween.tween_property(sprite, "modulate", normal_color, hurt_effect_duration / 2.0)
 
 
-
 func die():
 	set_physics_process(false)
 	drop_stuff()

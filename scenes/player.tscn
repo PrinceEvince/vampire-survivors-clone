@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dethko4bvfpjt" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://assets/imgs/chef.png" id="2_dqkch"]
-[ext_resource type="PackedScene" uid="uid://dmtnjvf3mtg6r" path="res://scenes/knife weapon.tscn" id="3_dqkch"]
+[ext_resource type="PackedScene" uid="uid://dmtnjvf3mtg6r" path="res://scenes/knife_weapon.tscn" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://c804m0o62hpqk" path="res://scenes/spatula.tscn" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bs3psf3exa5dq" path="res://scenes/pan.tscn" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dlxlek8cfesx8" path="res://assets/imgs/xp_bar.png" id="6_tuyoq"]
@@ -149,10 +149,8 @@ libraries = {
 }
 
 [node name="Knife" parent="." instance=ExtResource("3_dqkch")]
-visible = false
 
-[node name="Spatula2" parent="." instance=ExtResource("3_qlg0r")]
-visible = false
+[node name="Spatula" parent="." instance=ExtResource("3_qlg0r")]
 position = Vector2(-10, -1)
 collision_layer = 1
 collision_mask = 1
@@ -162,6 +160,8 @@ z_index = -1
 position = Vector2(-1, 2)
 collision_layer = 1
 collision_mask = 1
+
+[node name="FireySauce" parent="." instance=ExtResource("11_d2wvv")]
 
 [node name="xp_bar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
@@ -237,8 +237,6 @@ parameters/looping = true
 
 [node name="iFrames" type="Timer" parent="."]
 wait_time = 0.15
-
-[node name="FireySauce" parent="." instance=ExtResource("11_d2wvv")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

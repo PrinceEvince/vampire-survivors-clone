@@ -29,15 +29,24 @@ var active_hurt_tween: Tween
 @export var hurt_color = Color(1.0, 0.5, 0.5)  # Reddish tint for hurt effect
 @export var normal_color = Color(1.0, 1.0, 1.0) # Default modulate is usually white
 @export var hurt_effect_duration = 0.15 # Total time for the flash (flash on + flash off)
-
 @export var invincible = false
 
+#Weapons
+var KNIFE = preload("res://scenes/knife_weapon.tscn")
+var SPATULA = preload("res://scenes/spatula.tscn")
+var FIREY_SAUCE = preload("res://scenes/firey_sauce.tscn")
+
 func _ready():
+	self.remove_child($Knife)
+	self.remove_child($Spatula)
+	self.remove_child($FireySauce)
+	
 	level = 1
 	xp_needed = calculate_xp_to_next_lvl(level)
 	xp_bar.max_value = xp_needed
 	GlobalData.player = self
 	health_bar.value = 10
+
 	if UserData.chef == true:
 		%Sprite2D.texture = load("res://assets/imgs/chef.png")
 	if UserData.frycook == true:
@@ -161,18 +170,27 @@ func _on_accept_dialog_confirmed() -> void:
 func _on_accept_dialog_custom_action(action: StringName) -> void:
 	
 	if action == "unlock_spatula":
-		$Spatula2.show()
+		var spatula = SPATULA.instantiate()
+		self.add_child(spatula)
 		%levelup.stop()
 		get_tree().paused = false
 		%AcceptDialog.remove_button(%AcceptDialog.Spatula)
 		%AcceptDialog.hide()
 		
 	elif action == "unlock_knife":
-		$Knife.enabled = true
-		$Knife.show()
+		var knife = KNIFE.instantiate()
+		self.add_child(knife)
 		%levelup.stop()
 		get_tree().paused = false
 		%AcceptDialog.remove_button(%AcceptDialog.Knife)
+		%AcceptDialog.hide()
+		
+	elif action == "unlock_firey_sauce":
+		var firey_sauce = FIREY_SAUCE.instantiate()
+		self.add_child(firey_sauce)
+		%levelup.stop()
+		get_tree().paused = false
+		%AcceptDialog.remove_button(%AcceptDialog.FireySauce)
 		%AcceptDialog.hide()
 
 func _on_accept_dialog_canceled() -> void:
