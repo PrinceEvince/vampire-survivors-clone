@@ -10,7 +10,8 @@ preload("res://scenes/meatball.tscn") : 1,
 preload("res://scenes/tomato.tscn") : 1, 
 preload("res://scenes/cookie.tscn") : .1,
 preload("res://scenes/eggplant.tscn") : 0,
-preload("res://assets/easteregg/walterwhite.tscn") : 0.001
+preload("res://assets/easteregg/walterwhite.tscn") : 0.000001,
+preload("res://scenes/chili.tscn") : .5
 
 }
 

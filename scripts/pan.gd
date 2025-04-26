@@ -2,7 +2,7 @@ extends Area2D
 
 @export var speed = 0.23
 @export var rotation_amt = 160
-@export var damage = 1
+@export var damage = 5
 
 var rotating_tween: Tween
 var direction := 1  # 1 = right, -1 = left
