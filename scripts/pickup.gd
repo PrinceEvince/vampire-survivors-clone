@@ -14,14 +14,13 @@ var collected = false
 
 func _ready():
 	add_to_group("pickups")
-	print("not overriding")
 
 
 func _on_body_entered(body):
 	if body == GlobalData.player:
 		pickup()
 		
-
+		
 func _physics_process(delta: float) -> void:
 	if vacuum:
 		var player_pos = GlobalData.player.global_position
@@ -31,6 +30,7 @@ func _physics_process(delta: float) -> void:
 			var current_speed = lerp(min_speed, max_speed, closeness_ratio)
 			var direction = (player_pos - global_position).normalized()
 			global_position += direction * current_speed * delta
+
 
 func _process(delta):
 	if collected:
@@ -50,8 +50,10 @@ func pickup():
 	$Sprite2D.queue_free()
 	$CollisionShape2D.queue_free()
 
+
 func give_player_stuff():
 	pass # override this method to give player stuff depending on what type of pickup it is
+
 
 func shutup():
 	# slightly fancy code to only stop sfx of the same type of object that was picked up (thx chatgpt)

@@ -12,12 +12,17 @@ var xp = 0
 @export var level: int = 1
 @export var base_xp_requirement: int = 100
 @export var xp_scaling_factor: float = 10.0
+var health_drop_chance_numerator: int = 1
+@export var health_drop_chance_denominator: int = 5
+var gem_drop_chance_numerator: int = 1
+@export var gem_drop_chance_denominator: int = 5
 @export var exponent: float = 1.5
 var current_xp: int = 0
 var xp_needed: int = 0
 @onready var xp_bar = %xp_bar
 
-var hp = 10
+@export var max_hp = 10
+@export var hp = 10
 @onready var health_bar = %health_bar
 var bodies_entered = []
 var active_hurt_tween: Tween
@@ -103,8 +108,11 @@ func lose_hp(dmg: int):
 		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 
 func gain_hp(amt):
-	hp += amt
-	health_bar.value = hp
+	if max_hp == hp:
+		pass
+	else:
+		hp += amt
+		health_bar.value = hp
 
 func gain_xp(amt: int):
 	current_xp += amt

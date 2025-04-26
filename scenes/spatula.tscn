@@ -16,8 +16,8 @@ colors = PackedColorArray(0.884369, 0.679817, 0.94664, 1, 0, 0, 0, 1)
 size = Vector2(25, 16)
 
 [node name="Spatula" type="Area2D"]
-collision_layer = 15
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_d8owb")
 swing_time = 1.305
 

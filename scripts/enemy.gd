@@ -24,7 +24,6 @@ var newaudioplayer
 
 
 func _ready():
-	
 	add_to_group("enemies")
 	global_position = Vector2(
 		randf_range(0, 1200),
@@ -91,32 +90,31 @@ func take_damage(amt):
 
 func die():
 	set_physics_process(false)
+	drop_stuff()
+	add_death_particles()
 	randomize()
-	for num in randf_range(min_xp_dropped, ((randi() % (max_xp_dropped+1))+min_xp_dropped)):
-		var xp = XP_PICKUP.instantiate()
-		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
-		xp.global_position = global_position + random_offset
-		GlobalData.game.add_child(xp)
-	
-	var gem_chance = randi_range(1,2)
-	# print("number generated: ", gem_chance) # debug
+	queue_free() # Remove the enemy node from the scene
+
+func drop_stuff():
+	var amt_xp_dropped = randi_range(min_xp_dropped, max_xp_dropped+1)
+	add_pickup_to_world(XP_PICKUP, amt_xp_dropped)
+
+	var gem_chance = randi_range(GlobalData.player.gem_drop_chance_numerator, GlobalData.player.gem_drop_chance_denominator)
 	if gem_chance == 1:
-		var gem = GEM_PICKUP.instantiate()
-		gem.global_position = self.position
-		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
-		gem.global_position = global_position + random_offset
-		GlobalData.game.add_child(gem)
-		
-	var health_chance = randi_range(1,1)
-	# print("number generated: ", gem_chance) # debug
+		add_pickup_to_world(GEM_PICKUP, 1)
+
+	var health_chance = randi_range(GlobalData.player.health_drop_chance_numerator, GlobalData.player.health_drop_chance_denominator)
 	if health_chance == 1:
-		var health = HEALTH_PICKUP.instantiate()
-		health.global_position = self.position
+		add_pickup_to_world(HEALTH_PICKUP, 1)
+	
+func add_pickup_to_world(pickup_type: PackedScene, amt: int):
+	for num in range(0,amt): # yes the zero is intentional do not remove
 		var random_offset = Vector2(randf_range(-75, 75), randf_range(-75, 75))
-		health.global_position = global_position + random_offset
-		GlobalData.game.add_child(health)
-	
-	
+		var pickup = pickup_type.instantiate()
+		pickup.global_position = global_position + random_offset
+		GlobalData.game.add_child(pickup)
+
+func add_death_particles():
 	# add death particles
 	var explosion_particles = EXPLOSION_PARTICLES.instantiate()
 	if particle_texture:
@@ -125,5 +123,3 @@ func die():
 	explosion_particles.amount = 30
 	explosion_particles.emitting = true
 	GlobalData.game.add_child(explosion_particles)
-	
-	queue_free() # Remove the enemy node from the scene

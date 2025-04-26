@@ -48,6 +48,7 @@ _data = {
 }
 
 [node name="Tomato" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_tsxsy")
 HEALTH = 35
 min_xp_dropped = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj21kednqhkuy"]
+[gd_scene load_steps=5 format=3 uid="uid://cwni8l43c77wf"]
 
 [ext_resource type="Texture2D" uid="uid://13541gqaf60d" path="res://assets/imgs/xp_orb.png" id="2_qp56h"]
 [ext_resource type="AudioStream" uid="uid://cqojtcpu5i87q" path="res://assets/audio/xp_pickup.mp3" id="3_qp56h"]

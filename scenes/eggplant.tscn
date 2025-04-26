@@ -86,6 +86,7 @@ point_count = 2
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.172272, 0.172272)
+collision_layer = 2
 script = ExtResource("1_l4pqb")
 HEALTH = 20
 min_xp_dropped = 10
@@ -109,8 +110,7 @@ shape = SubResource("RectangleShape2D_42iu4")
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 255
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(180, 55.75)
