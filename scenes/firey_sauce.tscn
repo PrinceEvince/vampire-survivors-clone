@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqlqxm1u2880t"]
+
+[ext_resource type="Script" uid="uid://b7h26xjon3cd3" path="res://scripts/firey_sauce.gd" id="1_chrie"]
+[ext_resource type="Texture2D" uid="uid://cvgvbp3sxt58t" path="res://assets/imgs/firey sauce.png" id="2_lh7bd"]
+
+[node name="FireySauce" type="Area2D"]
+scale = Vector2(0.67, 0.67)
+script = ExtResource("1_chrie")
+range = 400.85
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-58.209, 1.69682e-13)
+rotation = -1.5708
+texture = ExtResource("2_lh7bd")
+offset = Vector2(0, -28)
+
+[node name="Tip of Bottle" type="Marker2D" parent="."]
+position = Vector2(-113.433, 0)

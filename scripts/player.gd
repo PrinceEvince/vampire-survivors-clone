@@ -89,6 +89,21 @@ func get_closest_enemy():
 		return closest_enemy_reference
 		
 
+func get_highest_hp_enemy_nearby(radius: float):
+	var enemies_in_group = get_tree().get_nodes_in_group("enemies")
+	if len(enemies_in_group) == 0:
+		return null
+	else:
+		var highest_hp_found = 0
+		var highest_hp_reference = null
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			if enemy.global_position.distance_to(global_position) <= radius:
+				if highest_hp_found < enemy.HEALTH:
+					highest_hp_found = enemy.HEALTH
+					highest_hp_reference = enemy
+		return highest_hp_reference
+			
+
 func calculate_xp_to_next_lvl(level: int):
 	if level < 1:
 		return base_xp_requirement
