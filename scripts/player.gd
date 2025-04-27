@@ -150,23 +150,27 @@ func gain_xp(amt: int):
 	current_xp += amt
 	xp_bar.value = current_xp
 	while current_xp >= xp_needed:
-		#level up stuff here
-		level += 1
+		level_up()
 		
-		var sfx_player = AudioStreamPlayer.new()
-		%LevelUp.add_child(sfx_player)
-		sfx_player.stream = preload("res://assets/audio/levelup.mp3")
-		sfx_player.volume_db = -9
-		sfx_player.play()
-		%levelup.play()
-		current_xp -= xp_needed
-		xp_needed = calculate_xp_to_next_lvl(level)
-		%LevelLabel.text = "Current level: " + str(level)
-		xp_bar.value = 0
-		xp_bar.max_value = xp_needed
-		
-		$LevelUp/AcceptDialog.popup()
-		get_tree().paused = true
+
+func level_up():
+	level += 1
+	var sfx_player = AudioStreamPlayer.new()
+	%LevelUp.add_child(sfx_player)
+	sfx_player.stream = preload("res://assets/audio/levelup.mp3")
+	sfx_player.volume_db = -9
+	sfx_player.play()
+	%levelup.play()
+	current_xp -= xp_needed
+	xp_needed = calculate_xp_to_next_lvl(level)
+	%LevelLabel.text = "Current level: " + str(level)
+	xp_bar.value = 0
+	xp_bar.max_value = xp_needed
+	
+	$LevelUp/AcceptDialog.popup()
+	get_tree().paused = true
+	
+
 
 func _on_lvlupdebug_pressed() -> void:
 	gain_xp(xp_needed)
