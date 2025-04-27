@@ -1,17 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://vl7wnfpa7dsd"]
+[gd_scene load_steps=15 format=3 uid="uid://vl7wnfpa7dsd"]
 
 [ext_resource type="Script" uid="uid://dethko4bvfpjt" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://assets/imgs/chef.png" id="2_dqkch"]
-[ext_resource type="PackedScene" uid="uid://dmtnjvf3mtg6r" path="res://scenes/knife_weapon.tscn" id="3_dqkch"]
-[ext_resource type="PackedScene" uid="uid://c804m0o62hpqk" path="res://scenes/spatula.tscn" id="3_qlg0r"]
-[ext_resource type="PackedScene" uid="uid://bs3psf3exa5dq" path="res://scenes/pan.tscn" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dlxlek8cfesx8" path="res://assets/imgs/xp_bar.png" id="6_tuyoq"]
-[ext_resource type="AudioStream" uid="uid://clchgoxvvoje6" path="res://assets/audio/music/lvlup-temp.mp3" id="7_fjrip"]
-[ext_resource type="Script" uid="uid://dvem2ca6upf7o" path="res://scripts/levelup_window.gd" id="7_smehm"]
 [ext_resource type="Texture2D" uid="uid://bm1g1op8rcugq" path="res://assets/imgs/health.png" id="9_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://cnoli06j8lugc" path="res://assets/imgs/redhealth.png" id="10_d2wvv"]
-[ext_resource type="PackedScene" uid="uid://buerlp8ppnchb" path="res://scenes/LevelUp2.tscn" id="11_3v2ag"]
-[ext_resource type="PackedScene" uid="uid://dqlqxm1u2880t" path="res://scenes/firey_sauce.tscn" id="11_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 8.0
@@ -125,7 +118,7 @@ collision_mask = 4
 script = ExtResource("1_g2els")
 base_xp_requirement = 30
 xp_scaling_factor = 7.0
-health_drop_chance_denominator = 100
+health_drop_chance_denominator = 10
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.91, 1.91)
@@ -157,21 +150,6 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_ur7pv")
 }
-
-[node name="Knife" parent="." instance=ExtResource("3_dqkch")]
-
-[node name="Spatula" parent="." instance=ExtResource("3_qlg0r")]
-position = Vector2(-10, -1)
-collision_layer = 1
-collision_mask = 1
-
-[node name="Pan" parent="." instance=ExtResource("5_qlg0r")]
-z_index = -1
-position = Vector2(-1, 2)
-collision_layer = 1
-collision_mask = 1
-
-[node name="FireySauce" parent="." instance=ExtResource("11_d2wvv")]
 
 [node name="xp_bar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
@@ -215,42 +193,6 @@ offset_right = -298.0
 offset_bottom = 275.0
 text = "Current level: 1"
 
-[node name="LevelUp" type="Control" parent="."]
-unique_name_in_owner = true
-process_mode = 3
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="AcceptDialog" type="AcceptDialog" parent="LevelUp"]
-unique_name_in_owner = true
-title = "Level up!"
-initial_position = 1
-size = Vector2i(615, 276)
-visible = true
-ok_button_text = "Cancel"
-script = ExtResource("7_smehm")
-
-[node name="Control" parent="LevelUp/AcceptDialog" instance=ExtResource("11_3v2ag")]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 607.0
-offset_bottom = 234.0
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelUp/AcceptDialog"]
-visible = false
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 607.0
-offset_bottom = 234.0
-
-[node name="levelup" type="AudioStreamPlayer" parent="LevelUp/AcceptDialog"]
-unique_name_in_owner = true
-stream = ExtResource("7_fjrip")
-volume_db = -4.0
-parameters/looping = true
-
 [node name="iFrames" type="Timer" parent="."]
 wait_time = 0.15
 
@@ -269,7 +211,4 @@ rotation = -0.00967088
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="lvlupdebug" to="." method="_on_lvlupdebug_pressed"]
 [connection signal="pressed" from="takedmgdebug" to="." method="_on_takedmgdebug_pressed"]
-[connection signal="canceled" from="LevelUp/AcceptDialog" to="." method="_on_accept_dialog_canceled"]
-[connection signal="confirmed" from="LevelUp/AcceptDialog" to="." method="_on_accept_dialog_confirmed"]
-[connection signal="custom_action" from="LevelUp/AcceptDialog" to="." method="_on_accept_dialog_custom_action"]
 [connection signal="timeout" from="iFrames" to="." method="_on_i_frames_timeout"]

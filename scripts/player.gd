@@ -38,21 +38,29 @@ var active_hurt_tween: Tween
 @onready var spawnerpicker = %SpawnLocationPicker
 
 
+@export var starting_weapon = "knife weapon"
+var owned_weapons = [starting_weapon]
+const KNIFE_WEAPON_SCENE = preload("res://scenes/knife_weapon.tscn")
+const PAN_SCENE = preload("res://scenes/pan.tscn")
+const FIREY_SAUCE_SCENE = preload("res://scenes/firey_sauce.tscn")
+const SPATULA_SCENE = preload("res://scenes/spatula.tscn")
+var all_weapons = {"knife weapon": KNIFE_WEAPON_SCENE, "pan": PAN_SCENE, "firey sauce": FIREY_SAUCE_SCENE, "spatula": SPATULA_SCENE}
+var weapons_unowned = ["knife", "pan", "firey sauce", "spatula"]
+var weapons_owned = [starting_weapon]
 
-#Weapons
-var KNIFE = preload("res://scenes/knife_weapon.tscn")
-var SPATULA = preload("res://scenes/spatula.tscn")
-var FIREY_SAUCE = preload("res://scenes/firey_sauce.tscn")
 
 func _ready():
-	self.remove_child($Knife)
-	self.remove_child($Spatula)
-	self.remove_child($FireySauce)
+	GlobalData.player = self
+	var temp_weapons = ["knife weapon", "pan", "spatula", "firey sauce"]
+	if starting_weapon in temp_weapons:
+		temp_weapons.erase(starting_weapon)
+	weapons_unowned = temp_weapons
+	add_weapon(starting_weapon)
 	
 	level = 1
 	xp_needed = calculate_xp_to_next_lvl(level)
 	xp_bar.max_value = xp_needed
-	GlobalData.player = self
+	
 	health_bar.value = 10
 
 	if UserData.chef == true:
@@ -91,6 +99,12 @@ func _physics_process(_delta):
 		ani_player.play("walk_up")
 		presses += 1
 	
+func add_weapon(weapon: String):
+	print("adding weapon: "+weapon)
+	owned_weapons.append(weapon)
+	weapons_unowned.erase(weapon)
+	var new_weapon = all_weapons[weapon].instantiate()
+	self.add_child(new_weapon)
 
 func get_closest_enemy():
 	if len(get_tree().get_nodes_in_group("enemies")) == 0:
@@ -156,68 +170,37 @@ func gain_xp(amt: int):
 func level_up():
 	level += 1
 	var sfx_player = AudioStreamPlayer.new()
-	%LevelUp.add_child(sfx_player)
 	sfx_player.stream = preload("res://assets/audio/levelup.mp3")
 	sfx_player.volume_db = -9
 	sfx_player.play()
-	%levelup.play()
 	current_xp -= xp_needed
 	xp_needed = calculate_xp_to_next_lvl(level)
 	%LevelLabel.text = "Current level: " + str(level)
 	xp_bar.value = 0
 	xp_bar.max_value = xp_needed
 	
-	$LevelUp/AcceptDialog.popup()
+	const LEVEL_UP_SCENE = preload("res://scenes/LevelUp.tscn")
+	GlobalData.game.add_child(LEVEL_UP_SCENE.instantiate())
 	get_tree().paused = true
-	
 
 
 func _on_lvlupdebug_pressed() -> void:
 	gain_xp(xp_needed)
 
-func _on_accept_dialog_confirmed() -> void:
-	%levelup.stop()
-	get_tree().paused = false
-	
-func _on_accept_dialog_custom_action(action: StringName) -> void:
-	
-	if action == "unlock_spatula":
-		var spatula = SPATULA.instantiate()
-		self.add_child(spatula)
-		%levelup.stop()
-		get_tree().paused = false
-		%AcceptDialog.remove_button(%AcceptDialog.Spatula)
-		%AcceptDialog.hide()
-		
-	elif action == "unlock_knife":
-		var knife = KNIFE.instantiate()
-		self.add_child(knife)
-		%levelup.stop()
-		get_tree().paused = false
-		%AcceptDialog.remove_button(%AcceptDialog.Knife)
-		%AcceptDialog.hide()
-		
-	elif action == "unlock_firey_sauce":
-		var firey_sauce = FIREY_SAUCE.instantiate()
-		self.add_child(firey_sauce)
-		%levelup.stop()
-		get_tree().paused = false
-		%AcceptDialog.remove_button(%AcceptDialog.FireySauce)
-		%AcceptDialog.hide()
-
-func _on_accept_dialog_canceled() -> void:
-	%levelup.stop()
-	get_tree().paused = false
 
 func _on_takedmgdebug_pressed() -> void:
 	lose_hp(1)
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		bodies_entered.append(body)
 
+
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	bodies_entered.erase(body)
 
+
 func _on_i_frames_timeout() -> void:
 	invincible = false
+	
