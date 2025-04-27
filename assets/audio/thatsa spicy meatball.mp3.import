@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3202xcdq7rhc"
+path="res://.godot/imported/thatsa spicy meatball.mp3-f5fc9f0e32e32cc9f6db67f646bac1c8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/thatsa spicy meatball.mp3"
+dest_files=["res://.godot/imported/thatsa spicy meatball.mp3-f5fc9f0e32e32cc9f6db67f646bac1c8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -116,7 +116,6 @@ collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(276.552, -106.075)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0vk45")
 
 [node name="Charge" type="Timer" parent="."]
