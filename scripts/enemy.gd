@@ -82,7 +82,7 @@ func take_damage(amt):
 
 	active_hurt_tween = create_tween()
 	active_hurt_tween.tween_property(sprite, "modulate", hurt_color, hurt_effect_duration / 2.0)
-	active_hurt_tween.tween_property(sprite, "rotation_degrees", 50, 0.06)
+	active_hurt_tween.tween_property(sprite, "rotation_degrees", randi_range(-60, 60), 0.06)
 	active_hurt_tween.tween_property(sprite, "rotation_degrees", 0, 0.06)
 	active_hurt_tween.tween_property(sprite, "modulate", normal_color, hurt_effect_duration / 2.0)
 
