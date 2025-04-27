@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://gkyrxg7n4hk7"]
 
-[ext_resource type="Script" uid="uid://bxmw3b317ytk2" path="res://scenes/greenchili.gd" id="1_73hg7"]
+[ext_resource type="Script" uid="uid://bxmw3b317ytk2" path="res://scripts/greenchili.gd" id="1_73hg7"]
 [ext_resource type="Texture2D" uid="uid://benlsr1ds0a7k" path="res://assets/imgs/greenchili.png" id="3_4hjy8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kbky6"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cm88pe1he607d"]
 
-[ext_resource type="Shader" uid="uid://vhwiuotgehv" path="res://scenes/greenbullet.gdshader" id="1_21s1j"]
-[ext_resource type="Script" uid="uid://dgnvf514b21d7" path="res://scenes/greenbullet.gd" id="1_ckhe1"]
+[ext_resource type="Shader" uid="uid://vhwiuotgehv" path="res://scripts/greenbullet.gdshader" id="1_21s1j"]
+[ext_resource type="Script" uid="uid://dgnvf514b21d7" path="res://scripts/greenbullet.gd" id="1_ckhe1"]
 [ext_resource type="Texture2D" uid="uid://bjpkaam28off5" path="res://assets/imgs/bullet.png" id="2_21s1j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y5xjo"]
