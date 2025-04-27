@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b33fkucvksbsh" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://citd7jx32xp3d" path="res://assets/audio/sfx_controller.tscn" id="3_lbhrr"]
 [ext_resource type="Script" uid="uid://c5bpf280cm2hf" path="res://scripts/music.gd" id="5_p57ef"]
-[ext_resource type="TileSet" uid="uid://chfxgrskg5f2f" path="res://kimchen.tres" id="6_p57ef"]
+[ext_resource type="TileSet" uid="uid://chfxgrskg5f2f" path="res://assets/themes styles resources/kimchen.tres" id="6_p57ef"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yqjtg")

@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwk2614c3h46e"]
+[gd_scene load_steps=10 format=3 uid="uid://cwk2614c3h46e"]
 
+[ext_resource type="Script" uid="uid://dklx3k81vfgat" path="res://scenes/level_up.gd" id="1_3yido"]
 [ext_resource type="Texture2D" uid="uid://bwkfhutt8i5o4" path="res://assets/imgs/ui thing.png" id="1_5alq8"]
 [ext_resource type="LabelSettings" uid="uid://m5a560bsaabh" path="res://assets/themes styles resources/LevelUpText.tres" id="2_1snnr"]
 [ext_resource type="Theme" uid="uid://d1ray53k4akua" path="res://assets/themes styles resources/button for hbox for level up.tres" id="2_gsdkw"]
-[ext_resource type="Texture2D" uid="uid://ygj6y1578g8g" path="res://assets/imgs/heart.png" id="3_10we6"]
-[ext_resource type="Texture2D" uid="uid://dxrdmwf0bnnmy" path="res://assets/imgs/spatula.png" id="4_1snnr"]
-[ext_resource type="Texture2D" uid="uid://13541gqaf60d" path="res://assets/imgs/xp_orb.png" id="5_3yido"]
-[ext_resource type="PackedScene" uid="uid://buerlp8ppnchb" path="res://LevelUp2.tscn" id="6_10we6"]
+[ext_resource type="Texture2D" uid="uid://dqqifshbycb06" path="res://assets/imgs/heart icon.png" id="4_1snnr"]
+[ext_resource type="Texture2D" uid="uid://blvod53ygryrk" path="res://assets/imgs/spatula icon.png" id="5_3yido"]
+[ext_resource type="PackedScene" uid="uid://buerlp8ppnchb" path="res://scenes/LevelUp2.tscn" id="6_10we6"]
+[ext_resource type="Texture2D" uid="uid://bypqcbaf7wx73" path="res://assets/imgs/firey sauce icon.png" id="6_xgl3m"]
+
+[sub_resource type="Theme" id="Theme_u15rb"]
 
 [node name="LevelUp" type="Control"]
 layout_mode = 3
@@ -15,23 +18,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -804.0
-offset_top = -343.0
-offset_right = -796.0
-offset_bottom = -335.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -952.0
+offset_bottom = -532.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_u15rb")
+script = ExtResource("1_3yido")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 2
-offset_left = -60.0
-offset_top = -112.0
-offset_right = 241.0
-offset_bottom = 6.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.5
+offset_top = -148.0
+offset_right = 324.5
+offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5alq8")
-region_rect = Rect2(11.9892, 11.9864, 40.024, 40.0647)
+region_rect = Rect2(1.95439, 1.98601, 72.0649, 72.0229)
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
@@ -44,10 +54,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -68.5
-offset_top = 11.0
-offset_right = 68.5
-offset_bottom = 55.0
+offset_left = -205.5
+offset_top = 24.0
+offset_right = 205.5
+offset_bottom = 124.0
 grow_horizontal = 2
 text = "Level Up!"
 label_settings = ExtResource("2_1snnr")
@@ -59,8 +69,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -56.0
-offset_bottom = -3.0
+offset_top = -164.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -76,10 +86,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Restore HP"
 
-[node name="Button" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer"]
+[node name="Button1" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-icon = ExtResource("3_10we6")
+icon = ExtResource("4_1snnr")
 icon_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
@@ -89,11 +99,11 @@ layout_mode = 2
 layout_mode = 2
 text = "+1 Damage"
 
-[node name="Button" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer2"]
+[node name="Button2" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-icon = ExtResource("4_1snnr")
+icon = ExtResource("5_3yido")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
 layout_mode = 2
@@ -102,11 +112,15 @@ layout_mode = 2
 layout_mode = 2
 text = "x1.25 XP"
 
-[node name="Button" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer3"]
+[node name="Button3" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
-icon = ExtResource("5_3yido")
+icon = ExtResource("6_xgl3m")
 
 [node name="Control" parent="NinePatchRect" instance=ExtResource("6_10we6")]
 visible = false
 layout_mode = 1
+
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/VBoxContainer2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/VBoxContainer3/Button3" to="." method="_on_button_3_pressed"]

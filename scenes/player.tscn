@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dvem2ca6upf7o" path="res://scripts/levelup_window.gd" id="7_smehm"]
 [ext_resource type="Texture2D" uid="uid://bm1g1op8rcugq" path="res://assets/imgs/health.png" id="9_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://cnoli06j8lugc" path="res://assets/imgs/redhealth.png" id="10_d2wvv"]
-[ext_resource type="PackedScene" uid="uid://buerlp8ppnchb" path="res://LevelUp2.tscn" id="11_3v2ag"]
+[ext_resource type="PackedScene" uid="uid://buerlp8ppnchb" path="res://scenes/LevelUp2.tscn" id="11_3v2ag"]
 [ext_resource type="PackedScene" uid="uid://dqlqxm1u2880t" path="res://scenes/firey_sauce.tscn" id="11_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
@@ -227,7 +227,7 @@ offset_bottom = 40.0
 unique_name_in_owner = true
 title = "Level up!"
 initial_position = 1
-size = Vector2i(303, 171)
+size = Vector2i(615, 276)
 visible = true
 ok_button_text = "Cancel"
 script = ExtResource("7_smehm")
@@ -235,15 +235,15 @@ script = ExtResource("7_smehm")
 [node name="Control" parent="LevelUp/AcceptDialog" instance=ExtResource("11_3v2ag")]
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 295.0
-offset_bottom = 122.0
+offset_right = 607.0
+offset_bottom = 234.0
 
 [node name="PanelContainer" type="PanelContainer" parent="LevelUp/AcceptDialog"]
 visible = false
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 295.0
-offset_bottom = 122.0
+offset_right = 607.0
+offset_bottom = 234.0
 
 [node name="levelup" type="AudioStreamPlayer" parent="LevelUp/AcceptDialog"]
 unique_name_in_owner = true

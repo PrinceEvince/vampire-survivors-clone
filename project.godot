@@ -16,6 +16,10 @@ config/auto_accept_quit=false
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://assets/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://assets/themes styles resources/default_bus_layout.tres"
+
 [autoload]
 
 GlobalData="*res://scripts/GlobalData.gd"
@@ -29,6 +33,10 @@ window/size/viewport_height=1080
 [global_group]
 
 player=""
+
+[gui]
+
+theme/custom_font="uid://7skc5disb7dx"
 
 [input]
 

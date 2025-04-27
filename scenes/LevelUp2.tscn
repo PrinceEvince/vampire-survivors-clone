@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://buerlp8ppnchb"]
+
+[ext_resource type="Theme" uid="uid://d1ray53k4akua" path="res://assets/themes styles resources/button for hbox for level up.tres" id="1_ahpi6"]
+[ext_resource type="Script" uid="uid://cj5m6vnyr0ess" path="res://scripts/level_up_2.gd" id="2_a8t8g"]
+[ext_resource type="LabelSettings" uid="uid://m5a560bsaabh" path="res://assets/themes styles resources/LevelUpText.tres" id="2_nvlfa"]
+[ext_resource type="Texture2D" uid="uid://ygj6y1578g8g" path="res://assets/imgs/heart.png" id="2_yn5s4"]
+
+[node name="Control" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ahpi6")
+script = ExtResource("2_a8t8g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ahpi6")
+theme_type_variation = &"HeaderLarge"
+text = "Level Up!"
+label_settings = ExtResource("2_nvlfa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ahpi6")
+text = "Test"
+label_settings = ExtResource("2_nvlfa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_yn5s4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_ahpi6")
+text = "Test"
+label_settings = ExtResource("2_nvlfa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_yn5s4")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("1_ahpi6")
+text = "Test"
+label_settings = ExtResource("2_nvlfa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_yn5s4")
