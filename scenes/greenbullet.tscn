@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm88pe1he607d"]
+
+[ext_resource type="Shader" uid="uid://vhwiuotgehv" path="res://scenes/greenbullet.gdshader" id="1_21s1j"]
+[ext_resource type="Script" uid="uid://dgnvf514b21d7" path="res://scenes/greenbullet.gd" id="1_ckhe1"]
+[ext_resource type="Texture2D" uid="uid://bjpkaam28off5" path="res://assets/imgs/bullet.png" id="2_21s1j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5xjo"]
+shader = ExtResource("1_21s1j")
+shader_parameter/hue_shift = 0.305
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckhe1"]
+shader = ExtResource("1_21s1j")
+shader_parameter/hue_shift = 0.305
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21s1j"]
+shader = ExtResource("1_21s1j")
+shader_parameter/hue_shift = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eoqba"]
+radius = 7.0
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_ckhe1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_y5xjo")
+scale = Vector2(1.32, 1.3195)
+lifetime = 0.1
+gravity = Vector2(0, 0)
+scale_amount_min = 0.0
+scale_amount_max = 10.0
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ckhe1")
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(1.6, 1.75)
+texture = ExtResource("2_21s1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_21s1j")
+shape = SubResource("CircleShape2D_eoqba")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 25.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

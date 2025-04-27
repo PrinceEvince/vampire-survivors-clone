@@ -1,5 +1,5 @@
 extends Node2D
-var enemy_spawn_frequency = 1.5 # in seconds
+var enemy_spawn_frequency = 1 # in seconds
 var spawn_timer = 0
 var difficulty_timer = 0
 
@@ -13,12 +13,7 @@ preload("res://scenes/meatball.tscn") : 1,
 preload("res://scenes/tomato.tscn") : 0, 
 preload("res://scenes/cookie.tscn") : 0,
 preload("res://scenes/chili.tscn") : 0,
-
-
-
-
-
-
+preload("res://scenes/greenchili.tscn") : 0,
 
 #walter white is an easter egg with a stupidly low chance to spawn
 preload("res://assets/easteregg/walterwhite.tscn") : 0.00000000001,
@@ -59,7 +54,7 @@ func spawn_enemy(delta):
 	############################################ Adjust enemy spawnrates w/ timer here ############################################
 	
 	if difficulty_timer > 30:
-		enemy_spawn_frequency = 1
+		enemy_spawn_frequency = 0.7
 		adjust_spawn_rate(preload("res://scenes/tomato.tscn"), 0.3)
 		
 	if difficulty_timer > 60:
@@ -70,9 +65,10 @@ func spawn_enemy(delta):
 		
 	if difficulty_timer > 100: 
 		enemy_spawn_frequency = 0.3
-		adjust_spawn_rate(preload("res://scenes/chili.tscn"), 1.5)
+		adjust_spawn_rate(preload("res://scenes/chili.tscn"), 4)
+		adjust_spawn_rate(preload("res://scenes/greenchili.tscn"), 1)
 		adjust_spawn_rate(preload("res://scenes/cookie.tscn"), 0)
-		adjust_spawn_rate(preload("res://scenes/tomato.tscn"), 0.3)
+		adjust_spawn_rate(preload("res://scenes/tomato.tscn"), 0.2)
 		adjust_spawn_rate(preload("res://scenes/meatball.tscn"), 0)
 		
 	###############################################################################################################################
