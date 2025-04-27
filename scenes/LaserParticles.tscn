@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqopo24qp1efk"]
+
+[ext_resource type="Script" uid="uid://cpn35jnwvd2ov" path="res://scripts/laser_particles.gd" id="1_7lsji"]
+
+[sub_resource type="Gradient" id="Gradient_my7mp"]
+offsets = PackedFloat32Array(0, 0.606667, 1)
+colors = PackedColorArray(0.862745, 0.258824, 0, 1, 0.992157, 0.964706, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_7lsji"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.93437, 0.498376, 0, 1, 0.992157, 0.94902, 0.109804, 1, 1, 1, 1, 1)
+
+[node name="LaserParticles" type="CPUParticles2D"]
+amount = 16
+lifetime = 0.11
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 41.3
+initial_velocity_max = 41.3
+scale_amount_min = 0.4
+scale_amount_max = 1.4
+color = Color(0.757975, 0.539217, 0.281231, 1)
+color_ramp = SubResource("Gradient_my7mp")
+color_initial_ramp = SubResource("Gradient_7lsji")
+script = ExtResource("1_7lsji")
