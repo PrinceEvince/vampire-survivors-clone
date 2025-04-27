@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://mojlp4763pa2"]
 
 [ext_resource type="Script" uid="uid://70ybkoesxlf6" path="res://scripts/eggplant.gd" id="1_l4pqb"]
-[ext_resource type="Texture2D" uid="uid://b8qre1310ixew" path="res://assets/imgs/eggplant.png" id="2_25ql1"]
+[ext_resource type="Texture2D" uid="uid://dif7f7pmp10bf" path="res://assets/imgs/eggplantfixed2.png" id="2_l4pqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42iu4"]
 size = Vector2(944.5, 335)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vk45"]
-size = Vector2(492, 417.5)
+size = Vector2(239.452, 181.272)
 
 [sub_resource type="Animation" id="Animation_0vk45"]
 length = 0.001
@@ -78,14 +78,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjyer"]
-size = Vector2(291.255, 572.681)
+size = Vector2(184.072, 386.963)
 
 [sub_resource type="Curve" id="Curve_wjyer"]
 _data = [Vector2(0.0170455, 1), 0.0, 0.0, 0, 0, Vector2(0.369318, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(0.172272, 0.172272)
 collision_layer = 2
 script = ExtResource("1_l4pqb")
 HEALTH = 20
@@ -95,25 +94,29 @@ metadata/_custom_type_script = "uid://bkrndwpfimsd5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(423, -51)
-texture = ExtResource("2_25ql1")
+position = Vector2(0, -3.8147e-06)
+texture = ExtResource("2_l4pqb")
 hframes = 4
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(498.25, 239)
+position = Vector2(370.545, 291.243)
 scale = Vector2(1, 1.0052)
 collision_layer = 2
 
 [node name="FallHitbox" type="CollisionShape2D" parent="Area2D2"]
 unique_name_in_owner = true
+position = Vector2(-1727.01, -1157.66)
 shape = SubResource("RectangleShape2D_42iu4")
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-127.705, 52.243)
+scale = Vector2(0.36053, 0.36053)
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(180, 55.75)
+position = Vector2(276.552, -106.075)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0vk45")
 
 [node name="Charge" type="Timer" parent="."]
@@ -130,12 +133,13 @@ libraries = {
 }
 
 [node name="body" type="CollisionShape2D" parent="."]
-position = Vector2(14.512, -40.6335)
-scale = Vector2(1.09616, 1.19607)
+position = Vector2(-70, -3.8147e-06)
+scale = Vector2(0.395198, 0.431219)
 shape = SubResource("RectangleShape2D_wjyer")
 
 [node name="boom" type="CPUParticles2D" parent="."]
-position = Vector2(496.373, 141.328)
+position = Vector2(25, 66)
+scale = Vector2(0.36053, 0.36053)
 emitting = false
 one_shot = true
 explosiveness = 1.0

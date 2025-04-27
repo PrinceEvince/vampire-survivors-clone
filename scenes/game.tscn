@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b33fkucvksbsh" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://citd7jx32xp3d" path="res://assets/audio/sfx_controller.tscn" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://c28qsnegc0d2i" path="res://assets/imgs/spacebg.png" id="3_lnu2h"]
-[ext_resource type="AudioStream" uid="uid://0w0ecnvu0lb0" path="res://assets/audio/music/battlemusic.mp3" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://deo4twsinw52g" path="res://assets/audio/battlemusic (2).mp3" id="5_p57ef"]
 [ext_resource type="TileSet" uid="uid://chfxgrskg5f2f" path="res://kimchen.tres" id="6_p57ef"]
 
 [node name="Game" type="Node2D"]
@@ -15,6 +15,23 @@ unique_name_in_owner = true
 position = Vector2(594, 322)
 
 [node name="SFXController" parent="Player" instance=ExtResource("3_lbhrr")]
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+z_index = -3
+offset_left = -512.0
+offset_top = 210.0
+offset_right = -168.0
+offset_bottom = 296.0
+mouse_filter = 2
+color = Color(0.447059, 0.321569, 0.709804, 0.447059)
+
+[node name="timer" type="Label" parent="Player"]
+unique_name_in_owner = true
+offset_left = -489.0
+offset_top = 214.0
+offset_right = -423.0
+offset_bottom = 237.0
+text = "TIMER: 0"
 
 [node name="9078" type="Sprite2D" parent="."]
 z_index = -9
@@ -29,7 +46,7 @@ scale = Vector2(12.101, 12.6741)
 texture = ExtResource("3_lnu2h")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_iywne")
+stream = ExtResource("5_p57ef")
 volume_db = -5.811
 autoplay = true
 parameters/looping = true

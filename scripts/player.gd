@@ -31,6 +31,14 @@ var active_hurt_tween: Tween
 @export var hurt_effect_duration = 0.15 # Total time for the flash (flash on + flash off)
 @export var invincible = false
 
+
+
+#Mob Spawn Path
+@onready var mobspawner = %MobSpawner
+@onready var spawnerpicker = %SpawnLocationPicker
+
+
+
 #Weapons
 var KNIFE = preload("res://scenes/knife_weapon.tscn")
 var SPATULA = preload("res://scenes/spatula.tscn")
