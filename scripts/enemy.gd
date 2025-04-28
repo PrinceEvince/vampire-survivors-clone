@@ -124,7 +124,7 @@ func add_death_particles():
 	GlobalData.game.add_child(explosion_particles)
 
 
-
 func _on_timer_timeout() -> void:
-	if global_position.distance_to(GlobalData.player.global_position) > 1000:
+	if global_position.distance_to(GlobalData.player.global_position) > 500:
+		print("despawning")
 		queue_free()

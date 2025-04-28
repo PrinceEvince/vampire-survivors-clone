@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf7h6iqjqmq5e" path="res://scripts/laser.gd" id="1_rx3qg"]
 
-[node name="Laser" type="Line2D"]
+[node name="Laser" type="Line2D" groups=["laser_particles"]]
 width = 3.0
 default_color = Color(1, 0, 0, 1)
 script = ExtResource("1_rx3qg")

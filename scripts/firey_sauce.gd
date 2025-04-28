@@ -33,6 +33,7 @@ func _process(delta):
 		shoot(delta)
 	else:
 		if laser.visible:
+			laser.make_invisible() # need to delete particles so a function was made for this instead of setting visible to false
 			laser.visible = false
 		current_damage = initial_damage
 		if cooldown_between_targets_timer >= cooldown_between_targets:
