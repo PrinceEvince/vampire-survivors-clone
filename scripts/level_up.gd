@@ -74,7 +74,7 @@ func generate_random_upgrade_data(exclude_values: Array) -> Upgrade:
 	var random_number = randi_range(1, 100)
 
 
-	if random_number <= 10 and not GlobalData.player.weapons_unowned.is_empty():
+	if random_number <= 20 and not GlobalData.player.weapons_unowned.is_empty():
 		var available_new = GlobalData.player.weapons_unowned.filter(func(w): return not w in exclude_values)
 		if not available_new.is_empty():
 			var weapon_name = available_new.pick_random()
