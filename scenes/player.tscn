@@ -119,6 +119,7 @@ script = ExtResource("1_g2els")
 base_xp_requirement = 30
 xp_scaling_factor = 7.0
 health_drop_chance_denominator = 10
+starting_weapon = "firey sauce"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.91, 1.91)
