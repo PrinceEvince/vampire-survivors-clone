@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwk2614c3h46e"]
 
-[ext_resource type="Script" uid="uid://dklx3k81vfgat" path="res://scenes/level_up.gd" id="1_3yido"]
+[ext_resource type="Script" uid="uid://dklx3k81vfgat" path="res://scripts/level_up.gd" id="1_3yido"]
 [ext_resource type="Texture2D" uid="uid://bwkfhutt8i5o4" path="res://assets/imgs/ui thing.png" id="1_5alq8"]
 [ext_resource type="LabelSettings" uid="uid://m5a560bsaabh" path="res://assets/themes styles resources/LevelUpText.tres" id="2_1snnr"]
 [ext_resource type="Theme" uid="uid://d1ray53k4akua" path="res://assets/themes styles resources/button for hbox for level up.tres" id="2_gsdkw"]
