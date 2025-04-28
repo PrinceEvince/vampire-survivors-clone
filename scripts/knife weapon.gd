@@ -4,14 +4,20 @@ const KNIFE = preload("res://scenes/Knife.tscn")
 const SFX_CONTROLLER = preload("uid://citd7jx32xp3d")
 
 @export var speed = 800 # the speed at which knives travel
-@export var lifespan = 2 # how many seconds the knives last before despawning
+@export var lifespan = 1 # how many seconds the knives last before despawning
 @export var direction = Vector2.ZERO # gun node will overwrite this after the instantiation line
 @export var lifespan_timer = 0.0 # this should always be zero
 @export var firerate = 1.5 # how many knives to throw per second
-@export var pierce = 700 # how many enemies the knives pierce
+@export var pierce = 3 # how many enemies the knives pierce
 @export var damage = 10 # how much damage the knives do
 @export var cooldown_timer = 0 # this should always be zero
 @export var knife_direction = Vector2.ZERO # just to initialize the direction to something
+@export var level = 1
+
+func _ready():
+	for _i in range(1,level):
+		level_up()
+
 
 func _process(delta):
 	cooldown_timer += delta
@@ -37,4 +43,20 @@ func shoot():
 										   # part of the game so it does not belong to the player
 										   # because when the player moves the bullets would move
 										   # which would be bad! you silly goose, you!!!!!!!!!!
-									
+func level_up():								
+	level += 1
+	if level == 2:
+		damage += 3
+	elif level == 3:
+		pierce += 2
+	elif level == 4:
+		firerate += 0.5
+	elif level == 5:
+		speed += 200
+		lifespan += 1
+		damage += 3
+	elif level == 6:
+		firerate += 0.5
+		pierce += 2
+	else:
+		pass
