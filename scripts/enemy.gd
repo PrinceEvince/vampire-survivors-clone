@@ -122,3 +122,9 @@ func add_death_particles():
 	explosion_particles.amount = 30
 	explosion_particles.emitting = true
 	GlobalData.game.add_child(explosion_particles)
+
+
+
+func _on_timer_timeout() -> void:
+	if global_position.distance_to(GlobalData.player.global_position) > 1000:
+		queue_free()
