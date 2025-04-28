@@ -75,9 +75,9 @@ func generate_random_upgrade_data(exclude_values: Array) -> Upgrade:
 
 
 	if random_number <= 20 and not GlobalData.player.weapons_unowned.is_empty():
-		var available_new = GlobalData.player.weapons_unowned.filter(func(w): return not w in exclude_values)
-		if not available_new.is_empty():
-			var weapon_name = available_new.pick_random()
+		var available_new = GlobalData.player.weapons_unowned
+		if not GlobalData.player.weapons_unowned.is_empty():
+			var weapon_name = GlobalData.player.weapons_unowned.pick_random()
 			return Upgrade.new(
 				TYPE_NEW_WEAPON,
 				weapon_name,
@@ -86,9 +86,8 @@ func generate_random_upgrade_data(exclude_values: Array) -> Upgrade:
 			)
 	# weapon upgrade
 	if random_number <= 70 and not GlobalData.player.weapons_owned.is_empty():
-		var available_owned = GlobalData.player.weapons_owned.filter(func(w): return not w in exclude_values)
-		if not available_owned.is_empty():
-			var weapon_name = available_owned.pick_random()
+		if not GlobalData.player.weapons_owned.is_empty():
+			var weapon_name = GlobalData.player.weapons_owned.keys().pick_random()
 			return Upgrade.new(
 				TYPE_LVL_UP,
 				weapon_name,
@@ -128,6 +127,7 @@ func generate_random_upgrade_data(exclude_values: Array) -> Upgrade:
 func update_button_display(index: int, data: Upgrade):
 	if index >= 0 and index < buttons.size():
 		labels[index].text = data.description
+		print(data.icon)
 		buttons[index].icon = data.icon
 		buttons[index].disabled = false
 
@@ -139,10 +139,11 @@ func apply_upgrade(upgrade_data: Upgrade):
 			GlobalData.player.add_weapon(upgrade_data.value)
 		TYPE_XP_MULT:
 			print("Applying XP Multiplier: ", upgrade_data.value)
-			pass
+			GlobalData.player.xp_mult += 0.25
 		TYPE_LVL_UP:
 			print("Increasing level for: ", upgrade_data.value)
-			pass
+			print(upgrade_data.value)
+			GlobalData.player.weapons_owned[upgrade_data.value].level_up()
 		TYPE_HP_RESTORE:
 			print("Restoring player's HP")
 			for num in range(1,100):

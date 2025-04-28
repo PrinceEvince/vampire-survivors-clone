@@ -8,10 +8,10 @@ var direction = Vector2.ZERO
 @onready var ani_player = %AnimationPlayer
 @onready var sprite = %Sprite2D
 var xp = 0
-
+@export var xp_mult = 1
 @export var level: int = 1
-@export var base_xp_requirement: int = 100
-@export var xp_scaling_factor: float = 10.0
+@export var base_xp_requirement: int = 50
+@export var xp_scaling_factor: float = 7.0
 var health_drop_chance_numerator: int = 1
 @export var health_drop_chance_denominator: int = 5
 var gem_drop_chance_numerator: int = 1
@@ -46,7 +46,7 @@ const FIREY_SAUCE_SCENE = preload("res://scenes/firey_sauce.tscn")
 const SPATULA_SCENE = preload("res://scenes/spatula.tscn")
 var all_weapons = {"knife weapon": KNIFE_WEAPON_SCENE, "pan": PAN_SCENE, "firey sauce": FIREY_SAUCE_SCENE, "spatula": SPATULA_SCENE}
 var weapons_unowned = ["knife", "pan", "firey sauce", "spatula"]
-var weapons_owned = [starting_weapon]
+var weapons_owned = {}
 
 
 func _ready():
@@ -101,9 +101,9 @@ func _physics_process(_delta):
 	
 func add_weapon(weapon: String):
 	print("adding weapon: "+weapon)
-	owned_weapons.append(weapon)
-	weapons_unowned.erase(weapon)
 	var new_weapon = all_weapons[weapon].instantiate()
+	weapons_owned[weapon] = new_weapon
+	weapons_unowned.erase(weapon)
 	self.add_child(new_weapon)
 
 func get_closest_enemy():
@@ -161,7 +161,7 @@ func gain_hp(amt):
 		health_bar.value = hp
 
 func gain_xp(amt: int):
-	current_xp += amt
+	current_xp += amt * xp_mult
 	xp_bar.value = current_xp
 	while current_xp >= xp_needed:
 		level_up()

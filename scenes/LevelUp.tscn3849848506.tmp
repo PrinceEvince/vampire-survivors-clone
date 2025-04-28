@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwk2614c3h46e"]
+
+[ext_resource type="Script" uid="uid://dklx3k81vfgat" path="res://scripts/level_up.gd" id="1_3yido"]
+[ext_resource type="Texture2D" uid="uid://bwkfhutt8i5o4" path="res://assets/imgs/ui thing.png" id="1_5alq8"]
+[ext_resource type="LabelSettings" uid="uid://m5a560bsaabh" path="res://assets/themes styles resources/LevelUpText.tres" id="2_1snnr"]
+[ext_resource type="Theme" uid="uid://d1ray53k4akua" path="res://assets/themes styles resources/button for hbox for level up.tres" id="2_gsdkw"]
+[ext_resource type="AudioStream" uid="uid://clchgoxvvoje6" path="res://assets/audio/music/lvlup-temp.mp3" id="6_1snnr"]
+[ext_resource type="PackedScene" uid="uid://buerlp8ppnchb" path="res://scenes/LevelUp2.tscn" id="6_10we6"]
+
+[sub_resource type="Theme" id="Theme_u15rb"]
+
+[node name="LevelUp" type="Control"]
+process_mode = 3
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_u15rb")
+script = ExtResource("1_3yido")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.5
+offset_top = -132.0
+offset_right = 292.5
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5alq8")
+region_rect = Rect2(1.95439, 1.98601, 72.0649, 72.0229)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -205.5
+offset_top = 19.0
+offset_right = 205.5
+offset_bottom = 119.0
+grow_horizontal = 2
+text = "Level Up!"
+label_settings = ExtResource("2_1snnr")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -164.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_gsdkw")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label1" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer1"]
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer1"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Control" parent="NinePatchRect" instance=ExtResource("6_10we6")]
+visible = false
+layout_mode = 1
+
+[node name="levelup" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_1snnr")
+volume_db = -4.0
+parameters/looping = true
+
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/VBoxContainer1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/VBoxContainer2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/VBoxContainer3/Button3" to="." method="_on_button_3_pressed"]

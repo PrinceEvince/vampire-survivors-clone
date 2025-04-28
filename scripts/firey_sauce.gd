@@ -63,12 +63,12 @@ func ramp_up():
 func level_up():
 	level += 1
 	if level == 2:
-		cooldown_between_targets -= 0.2
+		cooldown_between_targets -= 0.3
 	elif level == 3:
 		initial_damage += 1
 	elif level == 4:
-		cooldown_between_targets -= 0.1
-		firerate += 0.04
+		cooldown_between_targets -= 0.2
+		firerate -= 0.1
 	elif level == 5:
 		ramp_damage += 0.125
 	elif level == 6:
@@ -78,4 +78,5 @@ func level_up():
 		ramp_damage += 0.05
 	else:
 		pass
+		# idea for future upgrade: laser ricochets to other enemies?
 		

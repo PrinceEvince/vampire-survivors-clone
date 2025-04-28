@@ -19,6 +19,7 @@ func _on_body_entered(body):
 		body.take_damage(damage)
 
 func _process(delta):
+	print(damage)
 	if Input.is_action_just_pressed("d") and direction != 1:
 		direction = 1
 		flip_weapon(direction)
@@ -47,6 +48,7 @@ func start_rotation_tween(dir: int):
 	rotating_tween.tween_property(self, "rotation_degrees", from_angle, 0).set_delay(speed / 2)
 	
 func level_up():
+	print('leveling up!')
 	level += 1
 	if level == 2:
 		damage += 2
