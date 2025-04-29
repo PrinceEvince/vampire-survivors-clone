@@ -94,6 +94,24 @@ func die():
 	randomize()
 	queue_free() # Remove the enemy node from the scene
 
+
+func get_closest_enemy():
+	if len(get_tree().get_nodes_in_group("enemies")) == 0:
+		return null
+	else:
+		var closest_enemy_distance = INF
+		var closest_enemy_reference = Node2D
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			if enemy == self:
+				pass
+			else:
+				var distance = global_position.distance_to(enemy.global_position)
+				if distance < closest_enemy_distance:
+					closest_enemy_distance = distance
+					closest_enemy_reference = enemy
+		return closest_enemy_reference
+
+
 func drop_stuff():
 	var amt_xp_dropped = randi_range(min_xp_dropped, max_xp_dropped+1)
 	add_pickup_to_world(XP_PICKUP, amt_xp_dropped)

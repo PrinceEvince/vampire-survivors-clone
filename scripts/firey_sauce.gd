@@ -14,6 +14,10 @@ var targetted_enemy = null
 var added = false
 var laser
 @export var level = 1
+@export var ricochet = false
+@export var ricochet_amt = 0
+@export var targetted_enemies_ricochet = []
+@export var ricochet_distance = 50
 
 func _ready():
 	laser = LASER.instantiate()
@@ -36,8 +40,8 @@ func _process(delta):
 		shoot(delta)
 	else:
 		if laser.visible:
-			laser.make_invisible() # need to delete particles so a function was made for this instead of setting visible to false
 			laser.visible = false
+			targetted_enemies_ricochet.clear()
 		current_damage = initial_damage
 		if cooldown_between_targets_timer >= cooldown_between_targets:
 			cooldown_between_targets_timer = 0
@@ -46,6 +50,33 @@ func _process(delta):
 				laser.points = [$"Tip of Bottle".global_position, targetted_enemy.global_position]
 		else:
 			cooldown_between_targets_timer += delta
+			
+	if ricochet_amt > 0:
+		get_ricochet_targets()
+		
+	print(targetted_enemies_ricochet)
+
+func get_ricochet_targets():
+	if not targetted_enemy:
+		pass
+	else:
+		for num in range(1, ricochet_amt+1):
+			if len(targetted_enemies_ricochet) == 0:
+				var closest_enemy = targetted_enemy.get_closest_enemy()
+				if targetted_enemy.global_position.distance_to(closest_enemy.global_position) > ricochet_distance:
+					break
+				else:
+					targetted_enemies_ricochet.append(closest_enemy)
+			elif len(targetted_enemies_ricochet) > 0:
+				var closest_enemy = targetted_enemies_ricochet[len(targetted_enemies_ricochet)-1]
+				if targetted_enemy.global_position.distance_to(closest_enemy.global_position) > ricochet_distance:
+					break
+				else:
+					targetted_enemies_ricochet.append(closest_enemy)
+					
+			
+			
+
 
 func shoot(delta):
 	firerate_timer += delta
