@@ -15,10 +15,10 @@ radius = 23.0
 [node name="Cookie" type="CharacterBody2D"]
 collision_layer = 255
 script = ExtResource("1_2rrt0")
-SPEED = 210
+SPEED = 150
 HEALTH = 8
-min_xp_dropped = 5
-max_xp_dropped = 10
+min_xp_dropped = 3
+max_xp_dropped = 8
 particle_texture = ExtResource("2_on5vl")
 hurt_color = Color(0.863436, 5.31845e-06, 7.70092e-07, 1)
 metadata/_custom_type_script = "uid://bkrndwpfimsd5"

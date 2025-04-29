@@ -38,7 +38,7 @@ var active_hurt_tween: Tween
 @onready var spawnerpicker = %SpawnLocationPicker
 
 
-@export var starting_weapon = "knife weapon"
+@export var starting_weapon = "pan"
 var owned_weapons = [starting_weapon]
 const KNIFE_WEAPON_SCENE = preload("res://scenes/knife_weapon.tscn")
 const PAN_SCENE = preload("res://scenes/pan.tscn")

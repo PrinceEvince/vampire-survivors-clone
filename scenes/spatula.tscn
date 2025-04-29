@@ -44,7 +44,6 @@ anim_speed_min = 5.17
 anim_speed_max = 5.17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(130, 0.5)
 shape = SubResource("RectangleShape2D_d8owb")
 
