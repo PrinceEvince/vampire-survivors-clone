@@ -7,7 +7,7 @@ func _ready():
 		$FryCook/FryCookSprite.texture = load("res://assets/imgs/frycook_gray.png")
 		$FryCook/FryCookButton.text = "Equipped"
 	if UserData.frycook_purchased == true and UserData.frycook == false:
-		$FryCook/FryCookButton.text == "Equip"
+		$FryCook/FryCookButton.text = "Equip"
 	
 	#Shit for CoolGuy
 	$CoolGuy/CoolGuyAnim.play("idle")
