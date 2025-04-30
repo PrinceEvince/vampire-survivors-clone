@@ -2,7 +2,7 @@ extends Area2D
 
 @export var firerate = 0.2 # how fast the laser does dmg in seconds
 @export var initial_damage = 1 # Store the base damage
-@export var range: float # range of the laser
+@export var range: float = 400# range of the laser
 @export var cooldown_between_targets = 1.0
 @export var ramp_damage = 0.25
 var LASER: PackedScene = preload("res://scenes/Laser.tscn")
@@ -17,7 +17,7 @@ var laser
 @export var ricochet = false
 @export var ricochet_amt = 0
 @export var targetted_enemies_ricochet = []
-@export var ricochet_distance = 50
+@export var ricochet_distance = 100
 
 func _ready():
 	laser = LASER.instantiate()
@@ -39,10 +39,7 @@ func _process(delta):
 		laser.points = [$"Tip of Bottle".global_position, targetted_enemy.global_position]
 		shoot(delta)
 	else:
-		if laser.visible:
-			laser.visible = false
-			targetted_enemies_ricochet.clear()
-		current_damage = initial_damage
+		reset()
 		if cooldown_between_targets_timer >= cooldown_between_targets:
 			cooldown_between_targets_timer = 0
 			targetted_enemy = GlobalData.player.get_highest_hp_enemy_nearby(range)
@@ -51,31 +48,69 @@ func _process(delta):
 		else:
 			cooldown_between_targets_timer += delta
 			
-	if ricochet_amt > 0:
+	if ricochet_amt > 0 and not targetted_enemy:
 		get_ricochet_targets()
 		
 	print(targetted_enemies_ricochet)
 
 func get_ricochet_targets():
-	if not targetted_enemy:
-		pass
-	else:
-		for num in range(1, ricochet_amt+1):
-			if len(targetted_enemies_ricochet) == 0:
-				var closest_enemy = targetted_enemy.get_closest_enemy()
-				if targetted_enemy.global_position.distance_to(closest_enemy.global_position) > ricochet_distance:
-					break
-				else:
-					targetted_enemies_ricochet.append(closest_enemy)
-			elif len(targetted_enemies_ricochet) > 0:
-				var closest_enemy = targetted_enemies_ricochet[len(targetted_enemies_ricochet)-1]
-				if targetted_enemy.global_position.distance_to(closest_enemy.global_position) > ricochet_distance:
-					break
-				else:
-					targetted_enemies_ricochet.append(closest_enemy)
+	var counter = 0
+	var target
+	var enemy_closest_to_target
+	while counter < ricochet_amt:
+		if len(targetted_enemies_ricochet) == 0:
+			target = targetted_enemy
+			enemy_closest_to_target = target.get_closest_enemy()
+		else:
+			target = targetted_enemies_ricochet[len(targetted_enemies_ricochet)-1]
+			enemy_closest_to_target = target.get_closest_enemy()
+		if enemy_closest_to_target == null:
+			break
+		else:
+			if target.distance_to(enemy_closest_to_target) <= ricochet_distance:
+				targetted_enemies_ricochet.append(enemy_closest_to_target)
+				counter += 1
+			else:
+				break
+			
+			
+				
+				
+# called to check if current targets are out of reach
+# if main target is out of reach then shut down laser
+# and initiate cooldown
+# if ricochet targets are out of reach then just stop
+# shooting them lol
+func prune_out_of_reach_targets():
+	# Check distance from player to the main target
+	if GlobalData.player.global_position.distance_to(targetted_enemy.global_position) > range:
+		reset()
+		return
+
+	if len(targetted_enemies_ricochet) > 1:
+		var last_valid_index = 0
+		for i in range(len(targetted_enemies_ricochet) - 1):
+			var current_target = targetted_enemies_ricochet[i]
+			var next_target = targetted_enemies_ricochet[i+1]
+			if not is_instance_valid(current_target) or not is_instance_valid(next_target):
+				break
+			if current_target.global_position.distance_to(next_target.global_position) > ricochet_distance:
+				break
+			last_valid_index = i + 1
+		var valid_chain_size = last_valid_index + 1
+		if valid_chain_size < len(targetted_enemies_ricochet):
+			targetted_enemies_ricochet.resize(valid_chain_size)
+					
+	
 					
 			
 			
+
+func reset():
+	if laser.visible:
+		laser.visible = false
+		targetted_enemies_ricochet.clear()
+		current_damage = initial_damage
 
 
 func shoot(delta):
