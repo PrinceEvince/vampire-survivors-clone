@@ -95,14 +95,14 @@ func die():
 	queue_free() # Remove the enemy node from the scene
 
 
-func get_closest_enemy():
+func get_closest_enemy(excluded_enemies: Array):
 	if len(get_tree().get_nodes_in_group("enemies")) == 0:
 		return null
 	else:
 		var closest_enemy_distance = INF
 		var closest_enemy_reference = Node2D
 		for enemy in get_tree().get_nodes_in_group("enemies"):
-			if enemy == self:
+			if enemy == self or enemy in excluded_enemies:
 				pass
 			else:
 				var distance = global_position.distance_to(enemy.global_position)

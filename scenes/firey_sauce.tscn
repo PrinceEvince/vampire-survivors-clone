@@ -7,7 +7,6 @@
 scale = Vector2(0.67, 0.67)
 script = ExtResource("1_chrie")
 range = 400.85
-ricochet = true
 ricochet_amt = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

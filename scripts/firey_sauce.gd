@@ -14,23 +14,24 @@ var targetted_enemy = null
 var added = false
 var laser
 @export var level = 1
-@export var ricochet = false
+@export var ricochet = true
 @export var ricochet_amt = 0
 @export var targetted_enemies_ricochet = []
 @export var ricochet_distance = 100
+var lasers = []
 
 func _ready():
 	laser = LASER.instantiate()
+	lasers.append(laser)
+	GlobalData.game.add_child(laser)
+	for _i in range(ricochet_amt):
+		var laser = LASER.instantiate()
+		lasers.append(laser)
+		GlobalData.game.add_child(laser)
 	for _i in range(1,level):
 		level_up()
 
 func _process(delta):
-	# add the laser to the game as soon as the game exists in globaldata
-	if not added:
-		if GlobalData.game:
-			GlobalData.game.add_child(laser)
-			added = true
-			
 	if targetted_enemy:
 		if laser.visible == false:
 			laser.visible = true
@@ -48,7 +49,7 @@ func _process(delta):
 		else:
 			cooldown_between_targets_timer += delta
 			
-	if ricochet_amt > 0 and not targetted_enemy:
+	if ricochet_amt > 0 and targetted_enemy != null:
 		get_ricochet_targets()
 		
 	print(targetted_enemies_ricochet)
@@ -57,17 +58,17 @@ func get_ricochet_targets():
 	var counter = 0
 	var target
 	var enemy_closest_to_target
-	while counter < ricochet_amt:
+	for _i in range(ricochet_amt):
 		if len(targetted_enemies_ricochet) == 0:
 			target = targetted_enemy
-			enemy_closest_to_target = target.get_closest_enemy()
+			enemy_closest_to_target = target.get_closest_enemy(targetted_enemies_ricochet)
 		else:
 			target = targetted_enemies_ricochet[len(targetted_enemies_ricochet)-1]
-			enemy_closest_to_target = target.get_closest_enemy()
+			enemy_closest_to_target = target.get_closest_enemy(targetted_enemies_ricochet)
 		if enemy_closest_to_target == null:
 			break
 		else:
-			if target.distance_to(enemy_closest_to_target) <= ricochet_distance:
+			if target.global_position.distance_to(enemy_closest_to_target.global_position) <= ricochet_distance:
 				targetted_enemies_ricochet.append(enemy_closest_to_target)
 				counter += 1
 			else:
@@ -101,31 +102,27 @@ func prune_out_of_reach_targets():
 		if valid_chain_size < len(targetted_enemies_ricochet):
 			targetted_enemies_ricochet.resize(valid_chain_size)
 					
-	
 					
-			
-			
-
 func reset():
 	if laser.visible:
 		laser.visible = false
 		targetted_enemies_ricochet.clear()
 		current_damage = initial_damage
-
-
+		
+		
 func shoot(delta):
 	firerate_timer += delta
 	if firerate_timer >= firerate:
 		targetted_enemy.take_damage(current_damage)
 		ramp_up()
 		firerate_timer = 0
-
-
+		
+		
 func ramp_up():
 	current_damage = current_damage + ramp_damage
 	print("Damage ramped up to: ", current_damage)
-
-
+	
+	
 func level_up():
 	level += 1
 	if level == 2:
