@@ -1,6 +1,6 @@
 extends Enemy
 
-var BULLET = preload("res://scenes/greenbullet.tscn")
+var BULLET = preload("res://game elements/enemies/green chili/greenbullet.tscn")
 var is_in_range = false
 var bullets_fired: int = 0
 var can_fire: bool = true

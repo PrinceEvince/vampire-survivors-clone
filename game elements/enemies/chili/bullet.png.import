@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjpkaam28off5"
-path="res://.godot/imported/bullet.png-7310e9dcd5791a1f38e91795e140ea3d.ctex"
+path="res://.godot/imported/bullet.png-53497a1d6700f971802bd675c35e9e84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-7310e9dcd5791a1f38e91795e140ea3d.ctex"]
+source_file="res://game elements/enemies/chili/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-53497a1d6700f971802bd675c35e9e84.ctex"]
 
 [params]
 

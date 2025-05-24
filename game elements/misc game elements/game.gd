@@ -9,14 +9,14 @@ var enemy_scenes: Dictionary = {
 	
 	
 #put the preload(scene) first, and then after put the odds at which they spawn
-preload("res://scenes/meatball.tscn") : 1,
-preload("res://scenes/tomato.tscn") : 0, 
-preload("res://scenes/cookie.tscn") : 0,
-preload("res://scenes/chili.tscn") : 0,
-preload("res://scenes/greenchili.tscn") : 0,
+preload("res://game elements/enemies/meatball/meatball.tscn") : 1,
+preload("res://game elements/enemies/tomato/tomato.tscn") : 0, 
+preload("res://game elements/enemies/cookie/cookie.tscn") : 0,
+preload("res://game elements/enemies/chili/chili.tscn") : 0,
+preload("res://game elements/enemies/green chili/greenchili.tscn") : 0,
 
 #walter white is an easter egg with a stupidly low chance to spawn
-preload("res://assets/easteregg/walterwhite.tscn") : 0.00000000001,
+preload("res://game elements/enemies/easteregg/walterwhite.tscn") : 0.00000000001,
 }
 
 var max_enemies = 100
@@ -55,21 +55,21 @@ func spawn_enemy(delta):
 	
 	if difficulty_timer > 60:
 		enemy_spawn_frequency = 0.7
-		adjust_spawn_rate(preload("res://scenes/tomato.tscn"), 0.3)
+		adjust_spawn_rate(preload("res://game elements/enemies/tomato/tomato.tscn"), 0.3)
 		
 	if difficulty_timer > 90:
 		enemy_spawn_frequency = 0.6
-		adjust_spawn_rate(preload("res://scenes/cookie.tscn"), 0.3)
-		adjust_spawn_rate(preload("res://scenes/tomato.tscn"), 0.3)
-		adjust_spawn_rate(preload("res://scenes/meatball.tscn"), 0.1)
+		adjust_spawn_rate(preload("res://game elements/enemies/cookie/cookie.tscn"), 0.3)
+		adjust_spawn_rate(preload("res://game elements/enemies/tomato/tomato.tscn"), 0.3)
+		adjust_spawn_rate(preload("res://game elements/enemies/meatball/meatball.tscn"), 0.1)
 		
 	if difficulty_timer > 120: 
 		enemy_spawn_frequency = 0.3
-		adjust_spawn_rate(preload("res://scenes/chili.tscn"), 1)
-		adjust_spawn_rate(preload("res://scenes/greenchili.tscn"), 0.5)
-		adjust_spawn_rate(preload("res://scenes/cookie.tscn"), 0.2)
-		adjust_spawn_rate(preload("res://scenes/tomato.tscn"), 0.2)
-		adjust_spawn_rate(preload("res://scenes/meatball.tscn"), 0)
+		adjust_spawn_rate(preload("res://game elements/enemies/chili/chili.tscn"), 1)
+		adjust_spawn_rate(preload("res://game elements/enemies/green chili/greenchili.tscn"), 0.5)
+		adjust_spawn_rate(preload("res://game elements/enemies/cookie/cookie.tscn"), 0.2)
+		adjust_spawn_rate(preload("res://game elements/enemies/tomato/tomato.tscn"), 0.2)
+		adjust_spawn_rate(preload("res://game elements/enemies/meatball/meatball.tscn"), 0)
 		
 	###############################################################################################################################
 

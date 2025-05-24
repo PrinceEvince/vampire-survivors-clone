@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyijfodf0l1ux"
-path="res://.godot/imported/runningcookie.png-dc09e0d5bb8c472e71f49a3804249213.ctex"
+path="res://.godot/imported/runningcookie.png-aa1824a955a8dd0822f00126bbc82316.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/runningcookie.png"
-dest_files=["res://.godot/imported/runningcookie.png-dc09e0d5bb8c472e71f49a3804249213.ctex"]
+source_file="res://game elements/enemies/cookie/runningcookie.png"
+dest_files=["res://.godot/imported/runningcookie.png-aa1824a955a8dd0822f00126bbc82316.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cqojtcpu5i87q"
-path="res://.godot/imported/xp_pickup.mp3-13bf148d2d4e85727381d37cac7db693.mp3str"
+path="res://.godot/imported/xp_pickup.mp3-9d7d0104702f279cd3dc50db26624b8f.mp3str"
 
 [deps]
 
-source_file="res://misc assets/audio/xp_pickup.mp3"
-dest_files=["res://.godot/imported/xp_pickup.mp3-13bf148d2d4e85727381d37cac7db693.mp3str"]
+source_file="res://game elements/pickups/xp/xp_pickup.mp3"
+dest_files=["res://.godot/imported/xp_pickup.mp3-9d7d0104702f279cd3dc50db26624b8f.mp3str"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnoli06j8lugc"
-path="res://.godot/imported/redhealth.png-d0cf9b08e02efcca022b2985edeb6ad4.ctex"
+path="res://.godot/imported/redhealth.png-b3ceb7244f8633cc31c09a3f9d3d0d78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/redhealth.png"
-dest_files=["res://.godot/imported/redhealth.png-d0cf9b08e02efcca022b2985edeb6ad4.ctex"]
+source_file="res://game elements/misc assets/imgs/redhealth.png"
+dest_files=["res://.godot/imported/redhealth.png-b3ceb7244f8633cc31c09a3f9d3d0d78.ctex"]
 
 [params]
 

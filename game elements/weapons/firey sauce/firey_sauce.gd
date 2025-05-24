@@ -5,7 +5,7 @@ extends Area2D
 @export var range: float = 400# range of the laser
 @export var cooldown_between_targets = 1.0
 @export var ramp_damage = 0.25
-var LASER: PackedScene = preload("res://weapons/firey sauce/Laser.tscn")
+var LASER: PackedScene = preload("res://game elements/weapons/firey sauce/Laser.tscn")
 var direction = Vector2.ZERO
 var cooldown_between_targets_timer = 0
 var current_damage = 1 # Damage used in calculations, starts at initial
@@ -97,10 +97,10 @@ func prune_out_of_reach_targets():
 					
 					
 func reset():
-	if laser.visible:
-		laser.visible = false
-		targetted_enemies_ricochet.clear()
-		current_damage = initial_damage
+	for laser in get_tree().get_nodes_in_group("lasers"):
+		laser.queue_free()
+	targetted_enemies_ricochet.clear()
+	current_damage = initial_damage
 		
 		
 func shoot(delta):

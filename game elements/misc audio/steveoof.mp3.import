@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cv64uatxu4fst"
-path="res://.godot/imported/steveoof.mp3-bf1c50fb62b2ddd5eed264501a5e2a88.mp3str"
+path="res://.godot/imported/steveoof.mp3-9b570279c84d7c72c3eaeba32e864633.mp3str"
 
 [deps]
 
-source_file="res://misc assets/audio/steveoof.mp3"
-dest_files=["res://.godot/imported/steveoof.mp3-bf1c50fb62b2ddd5eed264501a5e2a88.mp3str"]
+source_file="res://game elements/misc audio/steveoof.mp3"
+dest_files=["res://.godot/imported/steveoof.mp3-9b570279c84d7c72c3eaeba32e864633.mp3str"]
 
 [params]
 

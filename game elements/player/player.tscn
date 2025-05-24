@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://vl7wnfpa7dsd"]
 
-[ext_resource type="Script" uid="uid://dethko4bvfpjt" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://assets/imgs/chef.png" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://dlxlek8cfesx8" path="res://assets/imgs/xp_bar.png" id="6_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://bm1g1op8rcugq" path="res://assets/imgs/health.png" id="9_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://cnoli06j8lugc" path="res://assets/imgs/redhealth.png" id="10_d2wvv"]
+[ext_resource type="Script" uid="uid://dethko4bvfpjt" path="res://game elements/player/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://ctece5up2ra27" path="res://game elements/skins/chef/chef.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://dlxlek8cfesx8" path="res://game elements/misc assets/imgs/xp_bar.png" id="6_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://bm1g1op8rcugq" path="res://game elements/misc assets/imgs/health.png" id="9_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://cnoli06j8lugc" path="res://game elements/misc assets/imgs/redhealth.png" id="10_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 8.0
@@ -118,7 +118,6 @@ collision_mask = 4
 script = ExtResource("1_g2els")
 base_xp_requirement = 30
 health_drop_chance_denominator = 10
-starting_weapon = "firey sauce"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.91, 1.91)

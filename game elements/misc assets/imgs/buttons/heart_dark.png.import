@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxje1kn5081al"
-path="res://.godot/imported/heart_dark.png-24e89897e3b4eebcec191cfcd0c59b9b.ctex"
+path="res://.godot/imported/heart_dark.png-8bb45f163db6efaa40b5043cc06f3796.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/buttons/heart_dark.png"
-dest_files=["res://.godot/imported/heart_dark.png-24e89897e3b4eebcec191cfcd0c59b9b.ctex"]
+source_file="res://game elements/misc assets/imgs/buttons/heart_dark.png"
+dest_files=["res://.godot/imported/heart_dark.png-8bb45f163db6efaa40b5043cc06f3796.ctex"]
 
 [params]
 

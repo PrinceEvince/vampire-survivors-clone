@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://vo3vrrbaovi2"
-path="res://.godot/imported/levelup.mp3-57c237edee15c53a67a2cfced529bdcc.mp3str"
+path="res://.godot/imported/levelup.mp3-0c194e73de17f953dd0169bf49855283.mp3str"
 
 [deps]
 
-source_file="res://misc assets/audio/levelup.mp3"
-dest_files=["res://.godot/imported/levelup.mp3-57c237edee15c53a67a2cfced529bdcc.mp3str"]
+source_file="res://game elements/misc audio/levelup.mp3"
+dest_files=["res://.godot/imported/levelup.mp3-0c194e73de17f953dd0169bf49855283.mp3str"]
 
 [params]
 

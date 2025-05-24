@@ -40,10 +40,10 @@ var active_hurt_tween: Tween
 
 @export var starting_weapon = "pan"
 var owned_weapons = [starting_weapon]
-const KNIFE_WEAPON_SCENE = preload("res://weapons/knife/knife_weapon.tscn")
-const PAN_SCENE = preload("res://weapons/pan/pan.tscn")
-const FIREY_SAUCE_SCENE = preload("res://weapons/firey sauce/firey_sauce.tscn")
-const SPATULA_SCENE = preload("res://weapons/spatula/spatula.tscn")
+const KNIFE_WEAPON_SCENE = preload("res://game elements/weapons/knife/knife_weapon.tscn")
+const PAN_SCENE = preload("res://game elements/weapons/pan/pan.tscn")
+const FIREY_SAUCE_SCENE = preload("res://game elements/weapons/firey sauce/firey_sauce.tscn")
+const SPATULA_SCENE = preload("res://game elements/weapons/spatula/spatula.tscn")
 var all_weapons = {"knife weapon": KNIFE_WEAPON_SCENE, "pan": PAN_SCENE, "firey sauce": FIREY_SAUCE_SCENE, "spatula": SPATULA_SCENE}
 var weapons_unowned = ["knife", "pan", "firey sauce", "spatula"]
 var weapons_owned = {}
@@ -170,7 +170,7 @@ func gain_xp(amt: int):
 func level_up():
 	level += 1
 	var sfx_player = AudioStreamPlayer.new()
-	sfx_player.stream = preload("res://assets/audio/levelup.mp3")
+	sfx_player.stream = preload("res://game elements/misc audio/levelup.mp3")
 	sfx_player.volume_db = -9
 	sfx_player.play()
 	current_xp -= xp_needed
@@ -179,7 +179,7 @@ func level_up():
 	xp_bar.value = 0
 	xp_bar.max_value = xp_needed
 	
-	const LEVEL_UP_SCENE = preload("res://scenes/LevelUp.tscn")
+	const LEVEL_UP_SCENE = preload("res://game elements/misc game elements/LevelUp.tscn")
 	GlobalData.game.add_child(LEVEL_UP_SCENE.instantiate())
 	get_tree().paused = true
 

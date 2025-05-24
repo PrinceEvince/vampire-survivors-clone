@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6tev2qv3jux4"
-path="res://.godot/imported/chili_particle.png-5f88893ae0f01d6316c7c5639e020079.ctex"
+path="res://.godot/imported/chili_particle.png-5bbade2332a5e57483c837d54241b23f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/chili_particle.png"
-dest_files=["res://.godot/imported/chili_particle.png-5f88893ae0f01d6316c7c5639e020079.ctex"]
+source_file="res://game elements/enemies/chili/chili_particle.png"
+dest_files=["res://.godot/imported/chili_particle.png-5bbade2332a5e57483c837d54241b23f.ctex"]
 
 [params]
 

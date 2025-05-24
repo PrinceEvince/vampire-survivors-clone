@@ -1,7 +1,7 @@
 # line_emitter_spawner.gd
 extends Line2D
 
-const LASER_PARTICLES = preload("res://weapons/firey sauce/LaserParticles.tscn")
+const LASER_PARTICLES = preload("res://game elements/weapons/firey sauce/LaserParticles.tscn")
 var particle_instances = []
 
 func _physics_process(delta):

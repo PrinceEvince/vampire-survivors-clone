@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bypqcbaf7wx73"
-path="res://.godot/imported/firey sauce icon.png-2d8ae9e7d996c26af0238399c78ba5c7.ctex"
+path="res://.godot/imported/firey sauce icon.png-69451a082cd0fc39339a676302fcb6c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/firey sauce icon.png"
-dest_files=["res://.godot/imported/firey sauce icon.png-2d8ae9e7d996c26af0238399c78ba5c7.ctex"]
+source_file="res://game elements/weapons/firey sauce/firey sauce icon.png"
+dest_files=["res://.godot/imported/firey sauce icon.png-69451a082cd0fc39339a676302fcb6c7.ctex"]
 
 [params]
 

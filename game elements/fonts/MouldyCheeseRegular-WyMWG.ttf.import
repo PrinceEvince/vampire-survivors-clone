@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://7skc5disb7dx"
-path="res://.godot/imported/MouldyCheeseRegular-WyMWG.ttf-144d3499d29fd123eb3c7b0caa624575.fontdata"
+path="res://.godot/imported/MouldyCheeseRegular-WyMWG.ttf-89c8c212dc8c0b3aad7be139cdb4d586.fontdata"
 
 [deps]
 
-source_file="res://misc assets/MouldyCheeseRegular-WyMWG.ttf"
-dest_files=["res://.godot/imported/MouldyCheeseRegular-WyMWG.ttf-144d3499d29fd123eb3c7b0caa624575.fontdata"]
+source_file="res://game elements/fonts/MouldyCheeseRegular-WyMWG.ttf"
+dest_files=["res://.godot/imported/MouldyCheeseRegular-WyMWG.ttf-89c8c212dc8c0b3aad7be139cdb4d586.fontdata"]
 
 [params]
 

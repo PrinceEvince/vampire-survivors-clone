@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://clchgoxvvoje6"
-path="res://.godot/imported/lvlup-temp.mp3-a04f31340db5a3e5c059ea6f948afb30.mp3str"
+path="res://.godot/imported/lvlup-temp.mp3-5af20fe3eb459d03994853de522a2845.mp3str"
 
 [deps]
 
-source_file="res://misc assets/audio/music/lvlup-temp.mp3"
-dest_files=["res://.godot/imported/lvlup-temp.mp3-a04f31340db5a3e5c059ea6f948afb30.mp3str"]
+source_file="res://game elements/music/lvlup-temp.mp3"
+dest_files=["res://.godot/imported/lvlup-temp.mp3-5af20fe3eb459d03994853de522a2845.mp3str"]
 
 [params]
 

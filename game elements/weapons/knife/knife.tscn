@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://daimmfbkt6x87"]
 
-[ext_resource type="Script" uid="uid://jwp5kpmxfwwh" path="res://scripts/knife.gd" id="1_l5glv"]
-[ext_resource type="Texture2D" uid="uid://bpn0rukoq47l2" path="res://assets/imgs/knife.png" id="2_l5glv"]
-[ext_resource type="AudioStream" uid="uid://1efgll204jks" path="res://assets/audio/bullet_hit.ogg" id="3_t4vbm"]
+[ext_resource type="Script" uid="uid://jwp5kpmxfwwh" path="res://game elements/weapons/knife/knife.gd" id="1_l5glv"]
+[ext_resource type="Texture2D" uid="uid://bpn0rukoq47l2" path="res://game elements/weapons/knife/knife.png" id="2_l5glv"]
+[ext_resource type="AudioStream" uid="uid://1efgll204jks" path="res://game elements/misc audio/bullet_hit.ogg" id="3_t4vbm"]
 
 [sub_resource type="Curve" id="Curve_l5glv"]
 _data = [Vector2(0.0852273, 1), 0.0, 0.0, 0, 0, Vector2(0.176136, 0), 0.0, 0.0, 0, 0]

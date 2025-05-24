@@ -21,8 +21,8 @@ buses/default_bus_layout="res://assets/themes styles resources/default_bus_layou
 
 [autoload]
 
-GlobalData="*res://scripts/GlobalData.gd"
-UserData="*res://scripts/UserData.gd"
+GlobalData="*res://game elements/globals/GlobalData/GlobalData.gd"
+UserData="*res://game elements/globals/UserData/UserData.gd"
 
 [display]
 

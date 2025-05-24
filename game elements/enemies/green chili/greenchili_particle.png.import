@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddq07qek2c3ia"
-path="res://.godot/imported/greenchili_particle.png-0b5b953a25452bf69e017d5a39c09c72.ctex"
+path="res://.godot/imported/greenchili_particle.png-e40a2bd2188fd2b11c90d6ba8c158fab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/greenchili_particle.png"
-dest_files=["res://.godot/imported/greenchili_particle.png-0b5b953a25452bf69e017d5a39c09c72.ctex"]
+source_file="res://game elements/enemies/green chili/greenchili_particle.png"
+dest_files=["res://.godot/imported/greenchili_particle.png-e40a2bd2188fd2b11c90d6ba8c158fab.ctex"]
 
 [params]
 

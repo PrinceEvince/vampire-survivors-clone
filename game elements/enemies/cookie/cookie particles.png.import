@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3qogj8ly5ojd"
-path="res://.godot/imported/cookie particles.png-7b0c6075fc1954deb87fdeacc753e69e.ctex"
+path="res://.godot/imported/cookie particles.png-b051206493472b88d92b402d6a224c9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/cookie particles.png"
-dest_files=["res://.godot/imported/cookie particles.png-7b0c6075fc1954deb87fdeacc753e69e.ctex"]
+source_file="res://game elements/enemies/cookie/cookie particles.png"
+dest_files=["res://.godot/imported/cookie particles.png-b051206493472b88d92b402d6a224c9a.ctex"]
 
 [params]
 

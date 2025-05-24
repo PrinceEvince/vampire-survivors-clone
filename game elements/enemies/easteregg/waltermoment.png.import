@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uhr1bine1qb1"
-path="res://.godot/imported/waltermoment.png-ac6b6e816466f5ce490c577eca7f8f92.ctex"
+path="res://.godot/imported/waltermoment.png-84a6ef04c3c7eeef1bd9c2d08168ea06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/easteregg/waltermoment.png"
-dest_files=["res://.godot/imported/waltermoment.png-ac6b6e816466f5ce490c577eca7f8f92.ctex"]
+source_file="res://game elements/enemies/easteregg/waltermoment.png"
+dest_files=["res://.godot/imported/waltermoment.png-84a6ef04c3c7eeef1bd9c2d08168ea06.ctex"]
 
 [params]
 

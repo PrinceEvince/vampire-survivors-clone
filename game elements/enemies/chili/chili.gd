@@ -1,6 +1,6 @@
 extends Enemy
 
-var BULLET = preload("res://scenes/bullet.tscn")
+var BULLET = preload("res://game elements/enemies/chili/bullet.tscn")
 var is_in_range = false
 
 func _on_cooldown_timeout() -> void:

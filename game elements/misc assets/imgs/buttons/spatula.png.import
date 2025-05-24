@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cugce4d8fmm1s"
-path="res://.godot/imported/spatula.png-2b86fadfe3c3a5c0443757cc905b26fc.ctex"
+path="res://.godot/imported/spatula.png-f1f7e19cfb96b3e0b07cc4ab52df1fc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/buttons/spatula.png"
-dest_files=["res://.godot/imported/spatula.png-2b86fadfe3c3a5c0443757cc905b26fc.ctex"]
+source_file="res://game elements/misc assets/imgs/buttons/spatula.png"
+dest_files=["res://.godot/imported/spatula.png-f1f7e19cfb96b3e0b07cc4ab52df1fc2.ctex"]
 
 [params]
 

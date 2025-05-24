@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj1edoc3cu5fg"
-path="res://.godot/imported/eggplantfixed.png-c7737cc22924ce78031a3cb80cd3d803.ctex"
+path="res://.godot/imported/eggplantfixed.png-1638b69821eac062b954a45e7d3a4dd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/eggplantfixed.png"
-dest_files=["res://.godot/imported/eggplantfixed.png-c7737cc22924ce78031a3cb80cd3d803.ctex"]
+source_file="res://game elements/enemies/eggplant/eggplantfixed.png"
+dest_files=["res://.godot/imported/eggplantfixed.png-1638b69821eac062b954a45e7d3a4dd2.ctex"]
 
 [params]
 

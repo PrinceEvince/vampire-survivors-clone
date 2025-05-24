@@ -1,10 +1,10 @@
 class_name Enemy
 extends CharacterBody2D
 
-const EXPLOSION_PARTICLES = preload(("res://scenes/particle_explosion.tscn"))
-const XP_PICKUP = preload("res://scenes/xp_pickup.tscn")
-const GEM_PICKUP = preload("res://scenes/gem_pickup.tscn")
-const HEALTH_PICKUP = preload("res://scenes/health_pickup.tscn")
+const EXPLOSION_PARTICLES = preload(("res://game elements/enemies/base enemy/particle_explosion.tscn"))
+const XP_PICKUP = preload("res://game elements/pickups/xp/xp_pickup.tscn")
+const GEM_PICKUP = preload("res://game elements/pickups/gem/gem_pickup.tscn")
+const HEALTH_PICKUP = preload("res://game elements/pickups/health/health_pickup.tscn")
 @export var SPEED = 50
 @export var HEALTH = 15
 @onready var sprite: Sprite2D = $Sprite2D
@@ -57,10 +57,10 @@ func take_damage(amt):
 	HEALTH -= amt
 	
 	var hurt_sfx: Array[AudioStream] = [
-	preload("res://assets/audio/hit1.ogg"),
-	preload("res://assets/audio/hit2.ogg"),
-	preload("res://assets/audio/hit3.ogg"),
-	preload("res://assets/audio/hit4.ogg")
+	preload("res://game elements/enemies/base enemy/hit1.ogg"),
+	preload("res://game elements/enemies/base enemy/hit2.ogg"),
+	preload("res://game elements/enemies/base enemy/hit3.ogg"),
+	preload("res://game elements/enemies/base enemy/hit4.ogg")
 ]
 	newaudioplayer.stream = hurt_sfx.pick_random()
 	newaudioplayer.play()

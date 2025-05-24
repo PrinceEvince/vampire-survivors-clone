@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://etfj72prsvfy"
-path="res://.godot/imported/frycook.png-2779274726c17e33941f5c88d6458b1a.ctex"
+path="res://.godot/imported/frycook.png-5ca627bd602037d0d9b92af2724fcd37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/frycook.png"
-dest_files=["res://.godot/imported/frycook.png-2779274726c17e33941f5c88d6458b1a.ctex"]
+source_file="res://game elements/skins/frycook/frycook.png"
+dest_files=["res://.godot/imported/frycook.png-5ca627bd602037d0d9b92af2724fcd37.ctex"]
 
 [params]
 

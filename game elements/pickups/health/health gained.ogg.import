@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://ctrusmrq2e7na"
-path="res://.godot/imported/health gained.ogg-5d9bed0066c97bd11f8e3ff4ce96c77d.oggvorbisstr"
+path="res://.godot/imported/health gained.ogg-f8d3cfa6e1334d7cc852937bd6a5790f.oggvorbisstr"
 
 [deps]
 
-source_file="res://misc assets/audio/health gained.ogg"
-dest_files=["res://.godot/imported/health gained.ogg-5d9bed0066c97bd11f8e3ff4ce96c77d.oggvorbisstr"]
+source_file="res://game elements/pickups/health/health gained.ogg"
+dest_files=["res://.godot/imported/health gained.ogg-f8d3cfa6e1334d7cc852937bd6a5790f.oggvorbisstr"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blvod53ygryrk"
-path="res://.godot/imported/spatula icon.png-e055e4f2533fa2255d75fafb185132b4.ctex"
+uid="uid://dxrdmwf0bnnmy"
+path="res://.godot/imported/spatula.png-c4af06b0234f49a63d5504dd77de0532.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/spatula icon.png"
-dest_files=["res://.godot/imported/spatula icon.png-e055e4f2533fa2255d75fafb185132b4.ctex"]
+source_file="res://game elements/weapons/spatula/spatula.png"
+dest_files=["res://.godot/imported/spatula.png-c4af06b0234f49a63d5504dd77de0532.ctex"]
 
 [params]
 

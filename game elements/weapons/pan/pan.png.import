@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpw0xxgkk1wra"
-path="res://.godot/imported/pan.png-0479be94082d9e8f4ba4e9440cbca02e.ctex"
+path="res://.godot/imported/pan.png-1e40c93cc77f55216853137f8a9a81b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/pan.png"
-dest_files=["res://.godot/imported/pan.png-0479be94082d9e8f4ba4e9440cbca02e.ctex"]
+source_file="res://game elements/weapons/pan/pan.png"
+dest_files=["res://.godot/imported/pan.png-1e40c93cc77f55216853137f8a9a81b6.ctex"]
 
 [params]
 

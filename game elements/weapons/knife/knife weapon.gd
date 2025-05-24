@@ -1,6 +1,6 @@
 extends Node2D
 
-const KNIFE = preload("res://weapons/knife/Knife.tscn")
+const KNIFE = preload("res://game elements/weapons/knife/Knife.tscn")
 const SFX_CONTROLLER = preload("uid://citd7jx32xp3d")
 
 @export var speed = 800 # the speed at which knives travel

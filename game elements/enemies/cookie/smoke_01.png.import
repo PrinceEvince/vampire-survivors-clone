@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7n4qyeavgxal"
-path="res://.godot/imported/smoke_01.png-25fe07b7c38fcbd2e14f8a5fb64fc035.ctex"
+path="res://.godot/imported/smoke_01.png-80fc83944e8b1f9fc6c650787a48ee8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/smoke_01.png"
-dest_files=["res://.godot/imported/smoke_01.png-25fe07b7c38fcbd2e14f8a5fb64fc035.ctex"]
+source_file="res://game elements/enemies/cookie/smoke_01.png"
+dest_files=["res://.godot/imported/smoke_01.png-80fc83944e8b1f9fc6c650787a48ee8d.ctex"]
 
 [params]
 

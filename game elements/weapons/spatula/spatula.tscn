@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c804m0o62hpqk"]
 
-[ext_resource type="Script" uid="uid://cqlff5cevu5xv" path="res://scripts/spatula.gd" id="1_d8owb"]
-[ext_resource type="Texture2D" uid="uid://dxrdmwf0bnnmy" path="res://assets/imgs/spatula.png" id="2_ybuw3"]
-[ext_resource type="Texture2D" uid="uid://xrhduj0tv7y6" path="res://assets/imgs/smokesmall.png" id="3_6bpq7"]
+[ext_resource type="Script" uid="uid://cqlff5cevu5xv" path="res://game elements/weapons/spatula/spatula.gd" id="1_d8owb"]
+[ext_resource type="Texture2D" uid="uid://dxrdmwf0bnnmy" path="res://game elements/weapons/spatula/spatula.png" id="2_ybuw3"]
+[ext_resource type="Texture2D" uid="uid://xrhduj0tv7y6" path="res://game elements/enemies/cookie/smokesmall.png" id="3_6bpq7"]
 
 [sub_resource type="Curve" id="Curve_ybuw3"]
 _data = [Vector2(0.0852273, 1), 0.0, 0.0, 0, 0, Vector2(0.176136, 0), 0.0, 0.0, 0, 0]

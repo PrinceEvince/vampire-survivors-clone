@@ -21,14 +21,14 @@ class Upgrade:
 		self.icon = p_icon
 
 
-const XP_ORB_ICON = preload("res://assets/imgs/xp orb icon.png")
-const HP_ICON = preload("res://assets/imgs/heart icon.png")
-const GEM_ICON = preload("res://assets/imgs/gem icon.png")
+const XP_ORB_ICON = preload("res://game elements/misc assets/imgs/xp orb icon.png")
+const HP_ICON = preload("res://game elements/misc assets/imgs/heart icon.png")
+const GEM_ICON = preload("res://game elements/misc assets/imgs/gem icon.png")
 const WEAPON_ICONS = {
-	"firey sauce": preload("res://assets/imgs/firey sauce icon.png"),
-	"spatula": preload("res://assets/imgs/spatula icon.png"),
-	"pan": preload("res://assets/imgs/pan icon.png"),
-	"knife weapon": preload("res://assets/imgs/knife icon.png")
+	"firey sauce": preload("res://game elements/weapons/firey sauce/firey sauce icon.png"),
+	"spatula": preload("res://game elements/weapons/spatula/spatula icon.png"),
+	"pan": preload("res://game elements/weapons/pan/pan icon.png"),
+	"knife weapon": preload("res://game elements/weapons/knife/knife icon.png")
 }
 
 @onready var buttons = [

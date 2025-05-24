@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y8uncww0n77s"
-path="res://.godot/imported/fireysauce_dark.png-f76015eced31de54ce12283da30d1c51.ctex"
+path="res://.godot/imported/fireysauce_dark.png-1755be13fd0a30b26597281560e28be4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc assets/imgs/buttons/fireysauce_dark.png"
-dest_files=["res://.godot/imported/fireysauce_dark.png-f76015eced31de54ce12283da30d1c51.ctex"]
+source_file="res://game elements/misc assets/imgs/buttons/fireysauce_dark.png"
+dest_files=["res://.godot/imported/fireysauce_dark.png-1755be13fd0a30b26597281560e28be4.ctex"]
 
 [params]
 

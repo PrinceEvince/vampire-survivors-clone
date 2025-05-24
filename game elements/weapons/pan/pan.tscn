@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs3psf3exa5dq"]
 
-[ext_resource type="Script" uid="uid://cl76jf02rj1l1" path="res://scripts/pan.gd" id="1_bkvwt"]
-[ext_resource type="Texture2D" uid="uid://bpw0xxgkk1wra" path="res://assets/imgs/pan.png" id="2_yxv2b"]
+[ext_resource type="Script" uid="uid://cl76jf02rj1l1" path="res://game elements/weapons/pan/pan.gd" id="1_bkvwt"]
+[ext_resource type="Texture2D" uid="uid://bpw0xxgkk1wra" path="res://game elements/weapons/pan/pan.png" id="2_yxv2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg2j3"]
 size = Vector2(38.515, 55.0052)
