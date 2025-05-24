@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctrusmrq2e7na"
+path="res://.godot/imported/health gained.ogg-5d9bed0066c97bd11f8e3ff4ce96c77d.oggvorbisstr"
+
+[deps]
+
+source_file="res://misc assets/audio/health gained.ogg"
+dest_files=["res://.godot/imported/health gained.ogg-5d9bed0066c97bd11f8e3ff4ce96c77d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

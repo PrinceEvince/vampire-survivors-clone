@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://deo4twsinw52g"
+path="res://.godot/imported/battlemusic (2).mp3-60700e5424c97c807c01535fbbb478f4.mp3str"
+
+[deps]
+
+source_file="res://misc assets/audio/music/battlemusic (2).mp3"
+dest_files=["res://.godot/imported/battlemusic (2).mp3-60700e5424c97c807c01535fbbb478f4.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

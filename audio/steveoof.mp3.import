@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv64uatxu4fst"
+path="res://.godot/imported/steveoof.mp3-bf1c50fb62b2ddd5eed264501a5e2a88.mp3str"
+
+[deps]
+
+source_file="res://misc assets/audio/steveoof.mp3"
+dest_files=["res://.godot/imported/steveoof.mp3-bf1c50fb62b2ddd5eed264501a5e2a88.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

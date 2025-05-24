@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgmqkdp2hhrbw"]
+
+[ext_resource type="Script" uid="uid://ddi3t52seqy12" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://c2pbrr1ki8e5l" path="res://misc assets/audio/music/maintheme.wav" id="2_ekxnf"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_ekxnf")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 866.0
+offset_top = 374.0
+offset_right = 1114.0
+offset_bottom = 488.0
+focus_mode = 0
+keep_pressed_outside = true
+text = "PLAY GAME"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ekxnf")
+autoplay = true
+
+[node name="Shop" type="Button" parent="."]
+offset_left = 848.0
+offset_top = 745.0
+offset_right = 1144.0
+offset_bottom = 839.0
+text = "Shop"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 54.0
+offset_top = 979.0
+offset_right = 216.0
+offset_bottom = 1064.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

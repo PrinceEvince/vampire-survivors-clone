@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://156cor5gnm2g"
+path="res://.godot/imported/my name is walter hartwell white.ogg-d844b3dbfce7b473ce88f9b78ddd1c97.oggvorbisstr"
+
+[deps]
+
+source_file="res://misc assets/easteregg/my name is walter hartwell white.ogg"
+dest_files=["res://.godot/imported/my name is walter hartwell white.ogg-d844b3dbfce7b473ce88f9b78ddd1c97.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
