@@ -81,7 +81,7 @@ func generate_random_upgrade_data(exclude_values: Array) -> Upgrade:
 			return Upgrade.new(
 				TYPE_NEW_WEAPON,
 				weapon_name,
-				"New Weapon!",
+				"New!",
 				WEAPON_ICONS.get(weapon_name)
 			)
 	# weapon upgrade

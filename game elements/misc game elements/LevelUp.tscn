@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwk2614c3h46e"]
 
-[ext_resource type="Script" uid="uid://dklx3k81vfgat" path="res://scripts/level_up.gd" id="1_3yido"]
-[ext_resource type="Texture2D" uid="uid://bwkfhutt8i5o4" path="res://assets/imgs/ui thing.png" id="1_5alq8"]
-[ext_resource type="LabelSettings" uid="uid://m5a560bsaabh" path="res://assets/themes styles resources/LevelUpText.tres" id="2_1snnr"]
-[ext_resource type="Theme" uid="uid://d1ray53k4akua" path="res://assets/themes styles resources/button for hbox for level up.tres" id="2_gsdkw"]
-[ext_resource type="AudioStream" uid="uid://clchgoxvvoje6" path="res://assets/audio/music/lvlup-temp.mp3" id="6_1snnr"]
-[ext_resource type="PackedScene" uid="uid://buerlp8ppnchb" path="res://scenes/LevelUp2.tscn" id="6_10we6"]
+[ext_resource type="Script" uid="uid://dklx3k81vfgat" path="res://game elements/misc game elements/level_up.gd" id="1_3yido"]
+[ext_resource type="Texture2D" uid="uid://bwkfhutt8i5o4" path="res://game elements/misc assets/imgs/ui thing.png" id="1_5alq8"]
+[ext_resource type="LabelSettings" uid="uid://m5a560bsaabh" path="res://game elements/misc assets/themes styles resources/LevelUpText.tres" id="2_1snnr"]
+[ext_resource type="Theme" uid="uid://d1ray53k4akua" path="res://game elements/misc assets/themes styles resources/button for hbox for level up.tres" id="2_gsdkw"]
+[ext_resource type="AudioStream" uid="uid://clchgoxvvoje6" path="res://game elements/music/lvlup-temp.mp3" id="6_1snnr"]
+[ext_resource type="PackedScene" uid="uid://buerlp8ppnchb" path="res://game elements/misc game elements/LevelUp2.tscn" id="6_10we6"]
 
 [sub_resource type="Theme" id="Theme_u15rb"]
 
@@ -68,14 +68,17 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_gsdkw")
-theme_override_constants/separation = 20
+theme_override_constants/separation = 75
 alignment = 1
 
 [node name="VBoxContainer1" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
 
 [node name="Label1" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer1"]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Button1" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer1"]
 layout_mode = 2
@@ -84,9 +87,11 @@ icon_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label2" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Button2" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -95,9 +100,11 @@ size_flags_vertical = 4
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label3" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Button3" type="Button" parent="NinePatchRect/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
