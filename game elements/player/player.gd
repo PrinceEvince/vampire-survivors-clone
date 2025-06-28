@@ -64,11 +64,11 @@ func _ready():
 	health_bar.value = 10
 
 	if UserData.chef == true:
-		%Sprite2D.texture = load("res://assets/imgs/chef.png")
+		%Sprite2D.texture = load("res://game elements/skins/chef/chef.png")
 	if UserData.frycook == true:
-		%Sprite2D.texture = load("res://assets/imgs/frycook.png")
+		%Sprite2D.texture = load("res://game elements/skins/frycook/frycook.png")
 	if UserData.coolguy == true:
-		%Sprite2D.texture = load("res://assets/imgs/coolguy.png")
+		%Sprite2D.texture = load("res://game elements/skins/coolguy/coolguy.png")
 
 func _process(_delta):
 	if len(bodies_entered) > 0:
@@ -151,7 +151,7 @@ func lose_hp(dmg: int):
 	active_hurt_tween.tween_property(sprite, "modulate", hurt_color, hurt_effect_duration / 2.0)
 	active_hurt_tween.tween_property(sprite, "modulate", normal_color, hurt_effect_duration / 2.0)
 	if hp <= 0:
-		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
+		get_tree().change_scene_to_file("res://game elements/misc game elements/deathscreen.tscn")
 
 func gain_hp(amt):
 	if max_hp == hp:
